@@ -16,4 +16,6 @@ It gives us the benefit to concentrate of learning Vue.js and not spending too m
 
 The workshop is separated into several steps.
 
-[Step #1 - Setting up the Vue App with CodeSandbox](./workshop-steps/step1.md)
+- [Step #1 - Setting up the Vue App with CodeSandbox](./workshop-steps/step1.md)
+- [Step #2 - #Step2: Create the first own Vue component "Quiz.vue"](./workshop-steps/step2.md)
+- [Step #3 - Using the Quiz data](./workshop-steps/step3.md)
