@@ -87,12 +87,12 @@ computed: {
 // ...
 ```
 
-We are going to do the similar for the headline. Because with the start of the script we want to change the headline from “How Well Do You Know the Harry Potter Movies?” to “Which movie is this?”
+We are going to do the similar for the title. Because with the start of the script we want to change the title from “How Well Do You Know the Harry Potter Movies?” to “Which movie is this?”
 
 ```javascript
 // Quiz.vue
 computed: {
-    headline() {
+    title() {
       return this.currentQuestionNo
         ? "Which movie is this?"
         : "How Well Do You Know the Harry Potter Movies?";

@@ -26,10 +26,12 @@ import Vue from "vue";
 
 export const store = Vue.observable({
   questions: [],
+  stage: null,
+  title: null,
   currentQuestion: {
     img: null,
     correct: null,
-    ansewers: []
+    answers: []
   },
   currentQuestionNo: null,
   userAnswers: []
@@ -43,8 +45,15 @@ We will also store the data in the localStorage of the browser.
 // store.js
 // ...
 export const mutations = {
+  setStage(stage) {
+    store.stage = stage;
+    localStorage.stage = stage;
+  },
   setQuestions(questions) {
     store.questions = questions;
+  },
+  setTitle(title) {
+    store.title = title;
   },
   setCurrentQuestion(questionNo) {
     store.currentQuestionNo = questionNo;
@@ -76,19 +85,22 @@ export const actions = {
     let res = await fetch(url);
     res = await res.json();
     mutations.setQuestions(res.questions);
+    mutations.setStage(localStorage.stage || "welcome");
 
     const no = Number(localStorage.currentQuestionNo) || null;
     mutations.setCurrentQuestion(no);
+
     const answers = localStorage.userAnswers
       ? JSON.parse(localStorage.userAnswers)
       : [];
+
     mutations.setUserAnswers(answers);
   }
 };
 ```
 
 Now, that we defined our store we need to use it from the components side.
-First replace the fetchData in the Quiz.vue with the action fetchData() from the store.
+First replace the `fetchData` in the Quiz.vue with the action `fetchData()` from the store.
 
 ```html
 <!-- Quiz.vue -->
@@ -97,12 +109,17 @@ First replace the fetchData in the Quiz.vue with the action fetchData() from the
 import { actions } from "../store";
 async mounted() {
     await actions.fetchData(this.questionsUrl);
+    if (store.stage === "welcome") {
+      this.initWelcomeStage();
+    } else if (store.stage === "quiz") {
+      this.initQuizStage();
+    }
 }
 // ...
 </script>
 ```
 
-When we want to use all data from the store.
+Then we want to use all data from the store.
 
 ```javascript
 // Quiz.vue
@@ -110,29 +127,29 @@ import { store, actions } from "../store";
 // ...
 computed: {
     img() {
-      return store.currentQuestionNo
+      return store.stage === "quiz"
         ? store.currentQuestion.img
         : "https://media0.giphy.com/media/Bh3YfliwBZNwk/giphy.gif?cid=3640f6095c852266776c6f746fb2fc67";
     },
-    headline() {
-      return store.currentQuestionNo
-        ? "Which movie is this?"
-        : "How Well Do You Know the Harry Potter Movies?";
+    title() {
+      return store.title;
     },
     answers() {
-      return store.currentQuestion.answers ?    store.currentQuestion.answers : [];
+      return store.currentQuestion.answers ?
+        store.currentQuestion.answers
+        : [];
     },
   },
 ```
 
-Within the template where we check, if the welcome stage have to be shown or the quiz actually started and we want to show the question istead, we are using the `currentQuestionNo` for evaluation. But the `currentQuestionNo` is now part of the store. And before looking up `currentQuestionNo` in the store we would have to check if the store is initialized. To avoid this, we introduced another computed property start. This helps not being forced to check if the store can be used so far.
+Within the template where we check, if the welcome stage have to be shown or the quiz actually started and we want to show the question instead, we are using the `stage` for evaluation. But the `stage` is now part of the store. And before looking up `stage` in the store we would have to check if the store is initialized. To avoid this, we are introducing another computed property `stage`. This helps not being forced to check if the store can be used so far.
 
 ```javascript
 // Quiz.vue
 computed: {
   // ...
-  start() {
-      return !store.currentQuestionNo;
+  stage() {
+      return store.stage;
   }
   // ...
 }
@@ -140,8 +157,8 @@ computed: {
 
 ```html
 <!-- Quiz.vue -->
-<button class="quiz-button" v-if="stage" @click="initQuizStage">Start Quiz</button>
-    <ul class="quiz-choices" v-else>...
+<button class="quiz-button" v-if="stage === 'welcome'" @click="initQuizStage">Start Quiz</button>
+<ul class="quiz-choices" v-else-if="stage === 'quiz'">...</ul>
 ```
 
 If the user makes a choice we have to change some values in the store to continue with next question and to keep in mind, which answers the user gave. Now we have to do that in the defined way and to use the mutation methods from the store.
@@ -152,8 +169,16 @@ We also have to import the mutations from the store.
 // Quiz.vue
 import { store, actions, mutations } from "../store";
   methods: {
+    initWelcomeStage() {
+      mutations.setStage("welcome");
+      mutations.resetUserAnswers();
+      mutations.setCurrentQuestion(null);
+      mutations.setTitle("How Well Do You Know the Harry Potter Movies?");
+    },
     initQuizStage() {
-      mutations.setCurrentQuestion(1);
+      mutations.setStage("quiz");
+      mutations.setCurrentQuestion(+store.currentQuestionNo || 1);
+      mutations.setTitle("Which movie is this?");
     },
     evaluate(answerNo) {
       return this.userAnswer && answerNo === store.currentQuestion.correct;
@@ -180,6 +205,10 @@ In the CodeSandbox we are running into a problem when using localStorage. This i
 </span>
 
 ---
+
+[Prev: Step #6 - Proceed with next question](./workshop-steps/step6.md)
+---
+[Next: Step #8 - Create the score view](./workshop-steps/step8.md)
 
 [Prev: Step #6 - Proceed with next question](./workshop-steps/step6.md)
 
