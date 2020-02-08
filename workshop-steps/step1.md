@@ -52,4 +52,4 @@ The App.vue actually contains the ID-Selector #app which we used to mount with t
 
 ---
 
-[Next: Step #2 - Create the first own Vue component "Quiz.vue"](./workshop-steps/step2.md)
+[Next: Step #2 - Create the first own Vue component "Quiz.vue"](step2.md)

@@ -22,6 +22,6 @@ nextQuestion() {
 
 ---
 
-[Prev: Step #5 - Evaluate the option which was clicked](./workshop-steps/step5.md)
+[Prev: Step #5 - Evaluate the option which was clicked](step5.md)
 
-[Next: Step #7 - Introducing usage of store and saving data in local storage](./workshop-steps/step7.md)
+[Next: Step #7 - Introducing usage of store and saving data in local storage](step7.md)

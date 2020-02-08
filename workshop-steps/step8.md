@@ -76,4 +76,4 @@ correctAnswers() {
 Now we have to evaluate which result info has to be shown to the user.
 
 ---
-[Prev: Step #7 - Introducing usage of store and saving data in local storage](./workshop-steps/step7.md)
+[Prev: Step #7 - Introducing usage of store and saving data in local storage](step7.md)

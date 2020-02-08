@@ -206,11 +206,7 @@ In the CodeSandbox we are running into a problem when using localStorage. This i
 
 ---
 
-[Prev: Step #6 - Proceed with next question](./workshop-steps/step6.md)
----
-[Next: Step #8 - Create the score view](./workshop-steps/step8.md)
+[Prev: Step #6 - Proceed with next question](step6.md)
 
-[Prev: Step #6 - Proceed with next question](./workshop-steps/step6.md)
-
-[Next: Step #8 - Create the score view](./workshop-steps/step8.md)
+[Next: Step #8 - Create the score view](step8.md)
 

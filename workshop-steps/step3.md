@@ -102,6 +102,6 @@ computed: {
 
 ---
 
-[Prev: Step #2 - Create the first own Vue component "Quiz.vue"](./workshop-steps/step2.md)
+[Prev: Step #2 - Create the first own Vue component "Quiz.vue"](step2.md)
 
-[Next: Step #4 - Displaying possible movie options to user](./workshop-steps/step4.md)
+[Next: Step #4 - Displaying possible movie options to user](step4.md)
