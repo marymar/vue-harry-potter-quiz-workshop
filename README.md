@@ -20,3 +20,4 @@ The workshop is separated into several steps.
 - [Step #2 - #Step2: Create the first own Vue component "Quiz.vue"](./workshop-steps/step2.md)
 - [Step #3 - Using the Quiz data](./workshop-steps/step3.md)
 - [Step #4 - Displaying possible movie options to user](./workshop-steps/step4.md)
+- [Step #5 - Evaluate the option which was clicked](./workshop-steps/step5.md)
