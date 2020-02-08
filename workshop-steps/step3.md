@@ -32,7 +32,7 @@ To load the questions we are going again to provide the Quiz component with the 
 
 ```html
 <!-- App.vue -->
-<quiz :movies="movies" questions-url="https://api.jsonbin.io/b/5cdd1762dbffad51f8aa85a5"/>
+<quiz :movies="movies" questions-url="https://api.jsonbin.io/b/5e3f0514f47af813bad11ac5"/>
 ```
 
 ```javascript
