@@ -259,3 +259,8 @@ Also let ensure that the “Start Quiz” button disappears when the Quiz is sta
 ```html
 <button class="quiz-button" v-if="stage===’welcome’" @click="initQuizStage">Start Quiz</button>
 ```
+
+---
+[Prev: Step #1 - Setting up the Vue App with CodeSandbox](./workshop-steps/step1.md)
+
+[Next: Step #3 - Using the Quiz data](./workshop-steps/step3.md)

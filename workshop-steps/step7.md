@@ -179,5 +179,9 @@ import { store, actions, mutations } from "../store";
 In the CodeSandbox we are running into a problem when using localStorage. This is up to the iFrames which are needed by CodeSandbox. To get our QuizApp running again, we need to open the vie in a new browser window.
 </span>
 
+---
 
+[Prev: Step #6 - Proceed with next question](./workshop-steps/step6.md)
+
+[Next: Step #8 - Create the score view](./workshop-steps/step8.md)
 

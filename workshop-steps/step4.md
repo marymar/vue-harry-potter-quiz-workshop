@@ -22,3 +22,8 @@ answers() {
         : [];
 }
 ```
+
+---
+[Prev: Step #3 - Using the Quiz data](./workshop-steps/step3.md)
+
+[Next: Step #5 - Evaluate the option which was clicked](./workshop-steps/step5.md)

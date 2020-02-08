@@ -38,3 +38,10 @@ evaluate(answerNo) {
     }
 }
 ```
+
+---
+
+[Prev: #4 - Displaying possible movie options to user](./workshop-steps/step4.md)
+
+[Next: Step #6 - Proceed with next question](./workshop-steps/step6.md)
+
