@@ -23,3 +23,9 @@ The workshop is separated into several steps.
 - [Step #5 - Evaluate the option which was clicked](./workshop-steps/step5.md)
 - [Step #6 - Proceed with next question](./workshop-steps/step6.md)
 - [Step #7 - Introducing usage of store and saving data in local storage](./workshop-steps/step7.md)
+- [Step #8 - Create the score view](./workshop-steps/step8.md)
+
+## References
+- [Vue.js Guide](https://vuejs.org/v2/guide/)
+- [Using Vue Observable as a State Store](https://austincooper.dev/2019/08/09/vue-observable-state-store/)
+- [Harry Potter Quiz](https://madewithvuejs.com/harry-potter-movies-quiz)
