@@ -22,3 +22,4 @@ The workshop is separated into several steps.
 - [Step #4 - Displaying possible movie options to user](./workshop-steps/step4.md)
 - [Step #5 - Evaluate the option which was clicked](./workshop-steps/step5.md)
 - [Step #6 - Proceed with next question](./workshop-steps/step6.md)
+- [Step #7 - Introducing usage of store and saving data in local storage](./workshop-steps/step7.md)
