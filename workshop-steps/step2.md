@@ -1,10 +1,10 @@
-# Step2: Create the first own Vue component "Quiz.vue"
+#Step2: Create the first own Vue component "Quiz.vue"
 
 Now we are going to write our first own component in Vue. All components are also Vue instances.
 
 Our Vue projects actually provides a folder structure which is almost valid for many js frameworks. In the components folder all vue components are stored. Here you can also find the HelloWorld.vue component which contains all the helping text.
 
-Create the file `Quiz.vue` inside the components folder. This is going to be our `Quiz` component.
+Create a quiz component Quiz.vue inside the components folder.
 
 ![components folder](img/components.png)
 
@@ -32,7 +32,6 @@ It doesn’t provide any meaningful output. Let us put some text within the <div
 ```
 
 Now, we are including out brand new component in the App.vue. Just remove the `<HelloWorld />` component and use the Quiz component instead.
-Also it is needed to remove the import of the `HelloWorld` component in the `script` section and within the components options of the `App.vue` component.
 
 To use our Quiz component some steps are needed. First we have to import the component within the script section.
 
@@ -57,7 +56,6 @@ components: {
 ```
 
 The last thing to do is to use the component element `<quiz />` in the template.
-We can also remove the Vue logo, because we don't need it for our Quiz.
 
 ```html
 <template>
@@ -77,7 +75,7 @@ In the Quiz.vue template section we place a picture, a title and a link, which f
       alt
     >
     <h1 class="quiz-heading">How Well Do You Know the Harry Potter Movies?</h1>
-    <button class="quiz-button" @click="initQuizStage">Start Quiz</button>
+    <button class="quiz-button">Start Quiz</button>
 </div>
 ```
 
@@ -138,13 +136,13 @@ For the Quiz.vue we can make some simple stylings like the following.
 </style>
 ```
 
-When you click on the link to start the quiz, nothings happens, only the link in the navigation bar changes. What we need let something happen when the link is clicked, we need to bin an action t o the link itself. This we could achieved with adding an event modifier `@click` as attribute of the link.
+When you click on the button "Start Quiz" to start the quiz, nothings happens. What is needed to make something happen when the link is clicked, we need to bind an action  to the button. This we could achieved by adding an event modifier `@click`.
 
 ```javascript
 @click="initQuizStage"
 ```
 
-As value it contains initQuizStage where Vue expects a method, which is called when user clicks on the link. Wherefore we are going to define a method in the script section of our component.
+As value it contains `initQuizStage` where Vue expects a method, which is called when user clicks on the button. Wherefore we are going to define a method in the script section of our component.
 
 ```javascript
 // Quiz.js
@@ -163,7 +161,7 @@ It only prints “Start the quiz…” to the console. Before ongoing and implem
 
 Here we are going to provide all movie titles to our quiz component. Providing data to child components can be done with props. Props are custom attributes you can register on a component. A value can be passed to a prop attribute, which becomes a property on that component instance.
 
-In the App.vue extend the quiz element with an props attribute called “movies” and provide it with movies data, which you get from the data() method. With the colon in front of the prop name, you are telling Vue that this value inside the brackets is not just a string but a variable.
+In the App.vue extend the quiz element with an props attribute called “movies” and provide it with movies data, which you get from the `data()` method. With the colon in front of the prop name, you are telling Vue that this value inside the brackets is not just a string but a variable.
 
 ```html
 <!-- App.vue -->
@@ -193,7 +191,7 @@ data() {
 }
 ```
 
-If you provide a prop to the component, the component has to define that prop on the other side. This is done with introducing the prop in the `props: {}` section.
+If you provide a property to the component, the component has to define that property on the other side before you can use it within it. This is done with introducing the prop in the `props: {}` section.
 
 ```html
 <!-- Quiz.vue -->
@@ -218,7 +216,7 @@ To see if it works, we can use a simple list and iterate over the entries of mov
 </ul>
 ```
 
-With the `v-for` directive we can tell vue to iterate over the values in movie and to repeat this element with each value provided during each iteration.
+With the `v-for` directive we can tell vue to iterate over the values in movies and to repeat this element with each value provided during each iteration.
 The `{{ movie }}` is the mustache syntax. The mustache tag will be replaced with the value of the movie property on the corresponding data object. It will also be updated whenever the data object’s movie property changes.
 
 Let’s ensure that the part with the printed movies list is only shown when `initQuizStage` is clicked. This can be achieved by using the `stage` computed property and with the `v-if` directive in the template. The `v-if` directive validates the expression of its content. When it is true, the component is rendered and shown, if not, it is not rendered.
@@ -226,7 +224,7 @@ Let’s ensure that the part with the printed movies list is only shown when `in
 ```html
 <!-- Quiz.vue -->
 <template>
-  <ul class="quiz-choices" v-if="stage===’quiz’">
+  <ul class="quiz-choices" v-if="stage==='quiz'"">
 <template>
 
 <script>
@@ -245,7 +243,7 @@ export default {
   computed: {
     // ....
     stage() {
-        !store.currentQuestionNo ? “welcome” : “quiz”;
+        return !this.currentQuestionNo ? 'welcome' : 'quiz';
     }
   },
   methods: {
@@ -259,7 +257,7 @@ export default {
 Also let ensure that the “Start Quiz” button disappears when the Quiz is started. We can again use the `stage` property for it.
 
 ```html
-<button class="quiz-button" v-if="stage===’welcome’" @click="initQuizStage">Start Quiz</button>
+<button class="quiz-button" v-if="stage==='welcome'" @click="initQuizStage">Start Quiz</button>
 ```
 
 ---
