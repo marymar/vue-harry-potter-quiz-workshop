@@ -1,10 +1,10 @@
-#Step2: Create the first own Vue component "Quiz.vue"
+# Step2: Create the first own Vue component "Quiz.vue"
 
 Now we are going to write our first own component in Vue. All components are also Vue instances.
 
 Our Vue projects actually provides a folder structure which is almost valid for many js frameworks. In the components folder all vue components are stored. Here you can also find the HelloWorld.vue component which contains all the helping text.
 
-Create a quiz component Quiz.vue inside the components folder.
+Create the file `Quiz.vue` inside the components folder. This is going to be our `Quiz` component.
 
 ![components folder](img/components.png)
 
@@ -32,6 +32,7 @@ It doesn’t provide any meaningful output. Let us put some text within the <div
 ```
 
 Now, we are including out brand new component in the App.vue. Just remove the `<HelloWorld />` component and use the Quiz component instead.
+Also it is needed to remove the import of the `HelloWorld` component in the `script` section and within the components options of the `App.vue` component.
 
 To use our Quiz component some steps are needed. First we have to import the component within the script section.
 
@@ -56,6 +57,7 @@ components: {
 ```
 
 The last thing to do is to use the component element `<quiz />` in the template.
+We can also remove the Vue logo, because we don't need it for our Quiz.
 
 ```html
 <template>
