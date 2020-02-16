@@ -1,6 +1,6 @@
 # Step 7: Introducing usage of store and saving data in local storage
 
-Maybe you have realized that everytime you are making changes in your code or you do a refresh in the preview, the state is gone away and you have to start the quiz from the beginning again. Currently we are not storing our data, so that we can’t load information, e.g. about the current question for the user to answer, or what answers the user has given so far.
+Maybe you have realized that every time you are making changes in your code or you do a refresh in the preview, the state is gone away and you have to start the quiz from the beginning again. Currently we are not storing our data, so that we can’t load information, e.g. about the current question for the user to answer, or what answers the user has given so far.
 
 To change this and improve and save data, we are going to use the local Storage and a state management in Vue. It helps us to mutate data and state in our app.
 
@@ -20,7 +20,7 @@ Some of the following data we want to handle via the store:
 First we are defining the store with Vue observables which expects an object with all properties we want to observe.
 
 ```javascript
-// store.js
+// store/index.js
 import Vue from "vue";
 
 
@@ -42,7 +42,7 @@ For changing our values in the store we have to use a defined way for it and to 
 We will also store the data in the localStorage of the browser.
 
 ```javascript
-// store.js
+// store/index.js
 // ...
 export const mutations = {
   setStage(stage) {
@@ -78,7 +78,7 @@ export const mutations = {
 As we are using a store now it makes also sense to move the fetching of data away from the Quiz component to the store, too. Fetching the data is an action and it is defined within the action object of the store. Also in this action we are handling to load stored data from the localStorage.
 
 ```javascript
-// store.js
+// store/index.js
 // ...
 export const actions = {
   async fetchData(url) {
@@ -101,15 +101,19 @@ export const actions = {
 
 Now, that we defined our store we need to use it from the components side.
 First replace the `fetchData` in the Quiz.vue with the action `fetchData()` from the store.
+Second we will extract the initialization of the stage depending on which is active. Although we are going to store data, we have to do some additional work, for initialization at the beginning and maybe, if we want to play the quiz again from the beginning.
+
+So write two additional methods: `initWelcomeStage()` and `initQuizStage()`.
+later on we will need a third one, for the score stage.
 
 ```html
 <!-- Quiz.vue -->
 <!-- ... --->
 <script>
-import { actions } from "../store";
+import { mutations, store, actions } from "../store";
 async mounted() {
     await actions.fetchData(this.questionsUrl);
-    if (store.stage === "welcome") {
+     if (store.stage === "welcome") {
       this.initWelcomeStage();
     } else if (store.stage === "quiz") {
       this.initQuizStage();
@@ -120,6 +124,7 @@ async mounted() {
 ```
 
 Then we want to use all data from the store.
+Therefore, we have to change the computed properties for img(), title() and answers().
 
 ```javascript
 // Quiz.vue
