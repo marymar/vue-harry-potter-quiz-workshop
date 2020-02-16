@@ -1,4 +1,4 @@
-# Step2: Using the Quiz data
+# Step 3: Using the Quiz data
 
 Beside the movie data we need also the quiz data with the movie clip and the choices which movie it is actually.
 This data we will get from a JSON (Javascript Object Notation). JSON is the description of an Object in more Human readable way. It is mainly used to transfer information between systems.
