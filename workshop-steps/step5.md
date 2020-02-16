@@ -16,7 +16,6 @@ and handles the answer.
 </button>
 ```
 
-
 ```javascript
 // Quiz.vue
 data() {
@@ -27,15 +26,28 @@ data() {
 // ...
 methods: {
 // ...
-evaluate(answerNo) {
-      return (
-        this.userAnswer &&
-        answerNo === this.questions[this.questionNo - 1].correct
-      );
-    },
-    handleAnswer(answerNo) {
-      this.userAnswer = answerNo;
-    }
+  evaluate(answerNo) {
+    return (
+      this.userAnswer &&
+      answerNo === this.questions[this.currentQuestionNo - 1].correct
+    );
+  },
+  handleAnswer(answerNo) {
+    this.userAnswer = answerNo;
+  }
+// ...
+}
+```
+
+Don't forget to enhance the button style, for the wrong and correct answer.
+Otherwise you wouldn't see any changes in the browser.
+
+```css
+.quiz-button.wrong {
+  background-color: red;
+}
+.quiz-button.correct {
+  background-color: green;
 }
 ```
 
@@ -44,4 +56,3 @@ evaluate(answerNo) {
 [Prev: #4 - Displaying possible movie options to user](step4.md)
 
 [Next: Step #6 - Proceed with next question](step6.md)
-
