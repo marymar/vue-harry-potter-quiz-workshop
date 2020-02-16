@@ -8,7 +8,13 @@
     <button class="quiz-button" v-if="stage==='welcome'" @click="initQuizStage">Start Quiz</button>
     <ul class="quiz-choices" v-if="stage==='quiz'">
       <li v-for="answerNo in answers" :key="answerNo">
-        <button class="quiz-button">{{ movies[answerNo] }}</button>
+        <button
+          @click="handleAnswer(answerNo)"
+          class="quiz-button"
+          :class="{ 'correct': evaluate(answerNo) && userAnswer === answerNo,
+            'wrong': !evaluate(answerNo) && userAnswer === answerNo
+          }">{{ movies[answerNo] }}
+        </button>
       </li>
     </ul>
   </div>
@@ -30,6 +36,7 @@ export default {
     return {
       questions: [],
       currentQuestionNo: 0,
+      userAnswer: null,
     }
   },
   async mounted() {
@@ -60,6 +67,15 @@ export default {
   methods: {
     initQuizStage() {
       this.currentQuestionNo = 1;
+    },
+    evaluate(answerNo) {
+      return (
+        this.userAnswer &&
+        answerNo === this.questions[this.currentQuestionNo - 1].correct
+      );
+    },
+    handleAnswer(answerNo) {
+      this.userAnswer = answerNo;
     }
   }
 };
@@ -85,6 +101,12 @@ export default {
 }
 .quiz-button:hover {
   border-color: #eee;
+}
+.quiz-button.wrong {
+  background-color: red;
+}
+.quiz-button.correct {
+  background-color: green;
 }
 .quiz-choices {
   list-style: none;
