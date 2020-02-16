@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import { mutations, store, actions } from "../store";
+
 export default {
   props: {
     movies: {
@@ -41,43 +43,53 @@ export default {
     }
   },
   async mounted() {
-    const res = await fetch(this.questionsUrl);
-    this.questions = (await res.json()).questions;
-    console.log(this.questions);
+    await actions.fetchData(this.questionsUrl);
+    if (store.stage === "welcome") {
+      this.initWelcomeStage();
+    } else if (store.stage === "quiz") {
+      this.initQuizStage();
+    }
+
   },
   computed: {
     stage() {
-        return !this.currentQuestionNo ? 'welcome' : 'quiz';
+        return store.stage;
     },
     image() {
-      return this.currentQuestionNo
-      ? this.questions[this.currentQuestionNo].img
+      return store.currentQuestionNo
+      ? store.currentQuestion.img
       : "https://media0.giphy.com/media/Bh3YfliwBZNwk/giphy.gif?cid=3640f6095c852266776c6f746fb2fc67";
     },
     title() {
-      return this.currentQuestionNo
-      ? 'Which movie is this?'
-      : 'How Well Do You Know the Harry Potter Movies?';
+      return store.title
     },
     answers() {
-    return this.currentQuestionNo
-        ? this.questions[this.currentQuestionNo - 1].answers
+      return store.currentQuestion.answers
+        ? store.currentQuestion.answers
         : [];
-    }
+    },
   },
   methods: {
+    initWelcomeStage() {
+      mutations.setStage("welcome");
+      mutations.resetUserAnswers();
+      mutations.setCurrentQuestion(null);
+      mutations.setTitle("How Well Do You Know the Harry Potter Movies?");
+
+    },
     initQuizStage() {
-      this.currentQuestionNo = 1;
+      mutations.setStage("quiz");
+      mutations.setCurrentQuestion(+store.currentQuestionNo || 1);
+      mutations.setTitle("Which movie is this?");
     },
     evaluate(answerNo) {
       return (
         this.userAnswer &&
-        answerNo === this.questions[this.currentQuestionNo - 1].correct
-      );
+        answerNo === store.currentQuestion.correct);
     },
     handleAnswer(answerNo) {
       this.userAnswer = answerNo;
-      this.userAnswers.push(answerNo);
+      mutations.addUserAnswer(answerNo);
 
       setTimeout(() => {
         this.nextQuestion();
@@ -85,10 +97,10 @@ export default {
     },
     nextQuestion() {
       this.userAnswer = null;
-      ++this.currentQuestionNo;
+      mutations.setCurrentQuestion(store.currentQuestionNo + 1);
     }
   }
-};
+}
 </script>
 
 <style>
