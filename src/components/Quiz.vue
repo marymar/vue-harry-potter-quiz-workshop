@@ -17,6 +17,7 @@
         </button>
       </li>
     </ul>
+    <p v-if="this.stage === 'result'" v-html="this.result.text"/>
   </div>
 </template>
 
@@ -32,6 +33,10 @@ export default {
     questionsUrl: {
       type: String,
       required: true,
+    },
+    resultsInfo: {
+      type: Object,
+      required: true
     }
   },
   data() {
@@ -44,21 +49,27 @@ export default {
   },
   async mounted() {
     await actions.fetchData(this.questionsUrl);
-    if (store.stage === "welcome") {
-      this.initWelcomeStage();
+    if (store.stage === "result") {
+      this.initResultStage();
     } else if (store.stage === "quiz") {
       this.initQuizStage();
+    } else {
+      this.initWelcomeStage();
     }
-
   },
   computed: {
     stage() {
         return store.stage;
     },
     image() {
-      return store.currentQuestionNo
-      ? store.currentQuestion.img
-      : "https://media0.giphy.com/media/Bh3YfliwBZNwk/giphy.gif?cid=3640f6095c852266776c6f746fb2fc67";
+      switch (store.stage) {
+        case "result":
+          return this.result.img;
+        case "quiz":
+          return store.currentQuestion.img;
+        default:
+          return "https://media0.giphy.com/media/Bh3YfliwBZNwk/giphy.gif?cid=3640f6095c852266776c6f746fb2fc67";
+      }
     },
     title() {
       return store.title
@@ -68,6 +79,18 @@ export default {
         ? store.currentQuestion.answers
         : [];
     },
+    result() {
+      const correctAnswers = this.correctAnswers();
+      const resultInfo = this.resultsInfo[Math.floor(correctAnswers / 5)];
+      const result = {
+        title: `Your Score: ${correctAnswers} out of ${
+          store.questions.length
+        }`,
+        ...resultInfo
+      };
+
+      return result;
+    }
   },
   methods: {
     initWelcomeStage() {
@@ -82,6 +105,10 @@ export default {
       mutations.setCurrentQuestion(+store.currentQuestionNo || 1);
       mutations.setTitle("Which movie is this?");
     },
+    initResultStage() {
+      mutations.setStage("result");
+      mutations.setTitle(this.result.title);
+    },
     evaluate(answerNo) {
       return (
         this.userAnswer &&
@@ -92,13 +119,26 @@ export default {
       mutations.addUserAnswer(answerNo);
 
       setTimeout(() => {
-        this.nextQuestion();
+        if (store.currentQuestionNo < store.questions.length) {
+          this.nextQuestion();
+        } else {
+          this.initResultStage();
+        }
       }, 1000);
     },
     nextQuestion() {
       this.userAnswer = null;
       mutations.setCurrentQuestion(store.currentQuestionNo + 1);
-    }
+    },
+    correctAnswers() {
+      let count = 0;
+      store.questions.forEach((q, i) => {
+        if (q.correct === store.userAnswers[i]) {
+          count++;
+        }
+      });
+      return count;
+    },
   }
 }
 </script>
