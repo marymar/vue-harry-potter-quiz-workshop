@@ -7,7 +7,9 @@
     <h1 class="quiz-heading">{{ title }}</h1>
     <button class="quiz-button" v-if="stage==='welcome'" @click="initQuizStage">Start Quiz</button>
     <ul class="quiz-choices" v-if="stage==='quiz'">
-      <li v-for="movie in movies" :key="movie">{{ movie }}</li>
+      <li v-for="answerNo in answers" :key="answerNo">
+        <button class="quiz-button">{{ movies[answerNo] }}</button>
+      </li>
     </ul>
   </div>
 </template>
@@ -48,6 +50,11 @@ export default {
       return this.currentQuestionNo
       ? 'Which movie is this?'
       : 'How Well Do You Know the Harry Potter Movies?';
+    },
+    answers() {
+    return this.currentQuestionNo
+        ? this.questions[this.currentQuestionNo - 1].answers
+        : [];
     }
   },
   methods: {
@@ -78,5 +85,12 @@ export default {
 }
 .quiz-button:hover {
   border-color: #eee;
+}
+.quiz-choices {
+  list-style: none;
+  margin: 0;
+}
+.quiz-choices li {
+  padding: .5em;
 }
 </style>
