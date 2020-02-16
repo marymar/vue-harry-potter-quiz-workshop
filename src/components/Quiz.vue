@@ -13,7 +13,7 @@
           class="quiz-button"
           :class="{ 'correct': evaluate(answerNo) && userAnswer === answerNo,
             'wrong': !evaluate(answerNo) && userAnswer === answerNo
-          }">{{ movies[answerNo] }}
+          }">{{ movies[answerNo - 1] }}
         </button>
       </li>
     </ul>
@@ -37,6 +37,7 @@ export default {
       questions: [],
       currentQuestionNo: 0,
       userAnswer: null,
+      userAnswers: [],
     }
   },
   async mounted() {
@@ -76,6 +77,15 @@ export default {
     },
     handleAnswer(answerNo) {
       this.userAnswer = answerNo;
+      this.userAnswers.push(answerNo);
+
+      setTimeout(() => {
+        this.nextQuestion();
+      }, 1000);
+    },
+    nextQuestion() {
+      this.userAnswer = null;
+      ++this.currentQuestionNo;
     }
   }
 };
