@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-     <quiz :movies="movies"/>
+     <quiz :movies="movies" questions-url="https://api.jsonbin.io/b/5e3f0514f47af813bad11ac5" />
   </div>
 </template>
 

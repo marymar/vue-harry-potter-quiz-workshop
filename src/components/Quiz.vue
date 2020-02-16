@@ -1,10 +1,10 @@
 <template>
   <div>
     <img
-      src="https://media0.giphy.com/media/Bh3YfliwBZNwk/giphy.gif?cid=3640f6095c852266776c6f746fb2fc67"
+      :src="image"
       alt
     />
-    <h1 class="quiz-heading">How Well Do You Know the Harry Potter Movies?</h1>
+    <h1 class="quiz-heading">{{ title }}</h1>
     <button class="quiz-button" v-if="stage==='welcome'" @click="initQuizStage">Start Quiz</button>
     <ul class="quiz-choices" v-if="stage==='quiz'">
       <li v-for="movie in movies" :key="movie">{{ movie }}</li>
@@ -18,16 +18,36 @@ export default {
     movies: {
       type: Array,
       required: true
+    },
+    questionsUrl: {
+      type: String,
+      required: true,
     }
   },
   data() {
     return {
+      questions: [],
       currentQuestionNo: 0,
     }
+  },
+  async mounted() {
+    const res = await fetch(this.questionsUrl);
+    this.questions = (await res.json()).questions;
+    console.log(this.questions);
   },
   computed: {
     stage() {
         return !this.currentQuestionNo ? 'welcome' : 'quiz';
+    },
+    image() {
+      return this.currentQuestionNo
+      ? this.questions[this.currentQuestionNo].img
+      : "https://media0.giphy.com/media/Bh3YfliwBZNwk/giphy.gif?cid=3640f6095c852266776c6f746fb2fc67";
+    },
+    title() {
+      return this.currentQuestionNo
+      ? 'Which movie is this?'
+      : 'How Well Do You Know the Harry Potter Movies?';
     }
   },
   methods: {
