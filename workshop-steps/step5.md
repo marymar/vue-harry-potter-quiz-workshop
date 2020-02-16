@@ -1,4 +1,4 @@
-#Step 5: Evaluate the option which was clicked
+# Step 5: Evaluate the option which was clicked
 
 Once placed all possibilities we need to add the click event listener to the options and evaluate, if the right choice was made by the user.
 

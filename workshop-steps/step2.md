@@ -1,4 +1,4 @@
-#Step2: Create the first own Vue component "Quiz.vue"
+# Step 2: Create the first own Vue component "Quiz.vue"
 
 Now we are going to write our first own component in Vue. All components are also Vue instances.
 
