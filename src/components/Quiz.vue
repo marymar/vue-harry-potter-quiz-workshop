@@ -13,7 +13,7 @@
           class="quiz-button"
           :class="{ 'correct': evaluate(answerNo) && userAnswer === answerNo,
             'wrong': !evaluate(answerNo) && userAnswer === answerNo
-          }">{{ movies[answerNo] }}
+          }">{{ movies[answerNo - 1] }}
         </button>
       </li>
     </ul>
