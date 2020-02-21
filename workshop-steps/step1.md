@@ -6,10 +6,10 @@ Create a new sandbox Vue project. Go to CodeSandbox and click on the “Create S
 
 ![Choose template in Sandbox](img/create-new-sandbox2.png)
 
-As far as the IDE finished the setup, it opens your project in the editor.
+Once the IDE finished the setup, it opens your project in the editor.
 
 On the left side, you'll see all generated files in the navigation bar and dependencies the project has so far.  
-Don’t worry about the dependencies. We are going to explain it more later on.  
+Don’t worry about the dependencies, we are going to explain them later on.  
 On the right side to the navigation bar, you'll find the editor. Here you can code and see all your changes instantly in the preview to the right.  
 
 If you see the project boilerplate, it'll have content so far. It contains a lot of references provided by Vue.js itself to get help.
@@ -40,7 +40,7 @@ import Vue from "vue";
 import App from "./App.vue";
 ```
 
-The App.vue actually contains the ID-Selector #app which we'll use to mount with the Vue application.
+The App.vue actually contains the ID-Selector `#app` which we'll use to mount the Vue application.
 
 ```javascript
 <template>
