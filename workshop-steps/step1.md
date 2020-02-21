@@ -37,7 +37,8 @@ For more information check out:
 - https://codingexplained.com/coding/front-end/vue-js/mounting-templates-dynamically
 - https://vuejs.org/v2/guide/instance.html.
 
-In the first lines of the `main.js` you can find some imports. The first one imports the Vue module and the second one is the very first component we will use - it is the App component.
+In the first lines of the `main.js` you can find some imports.  
+The first one imports the Vue module and the second one is the very first component we will use - it is the App component.
 
 ```javascript
 import Vue from "vue";
