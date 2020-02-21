@@ -1,9 +1,11 @@
 # Step 1: Setting up the Vue App with CodeSandbox
 
 Create a new sandbox Vue project by going to CodeSandbox and clicking on the “Create Sandbox” box.  
-The options for which kind of sandbox you want to have will appear. There, choose Vue as the basis for your sandbox. The instant IDE will then set up a base Vue project for you.
+The options for which kind of sandbox you want to have will appear.
 
 ![Create new Sandbox](img/create-new-sandbox.png)
+
+There, choose Vue as the basis for your sandbox. The instant IDE will then set up a base Vue project for you.
 
 ![Choose template in Sandbox](img/create-new-sandbox2.png)
 
