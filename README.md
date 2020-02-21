@@ -9,7 +9,7 @@ The workshop idea is inspired by [Dmytro Barylo](https://www.linkedin.com/in/dmy
 ## Code Sandbox
 
 For the workshop you will need your laptop. For developing the quiz we are going to use the [CodeSandbox](https://codesandbox.io/) which is a great instant IDE and prototyping tool for rapid web development.
-It gives us the benefit to concentrate of learning Vue.js and not spending too much time into setting up a Vue.js project locally on the laptop. That’s one thing we are going to introduce in future workshops, where we are having more time for it. This time we stick to [CodeSandbox](https://codesandbox.io/).
+It gives us the benefit to concentrate on learning Vue.js and not spending too much time setting up a Vue.js project locally on the laptop. That’s one thing we are going to introduce in future workshops, where we are having more time for it. This time we stick to [CodeSandbox](https://codesandbox.io/).
 
 
 ## The Workshop
