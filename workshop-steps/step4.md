@@ -1,7 +1,8 @@
 # Step 4: Displaying possible movie options to user
 
 So, as you surely remember, we have displayed in the list with the answers, simply all the movies that exist.
-But what we actually want, is, to provide some suggestions to the user and let here guess, which one of this is the right answer. To achieve this, we will use the buttons, once clicked one of it, it turns into green, when the answer is right or red if not.
+But what we actually want, is, to provide some suggestions to the user and let her guess, which one of this is the right answer. 
+To achieve this, we will use the buttons: once one of them is clicked, it turns green, if the answer is correct or red if it isn't.
 
 We also need to change the data over which we iterate and use instead the data of the  current question. We are going to use again a computed property which just returns the possible answers from the current question.
 

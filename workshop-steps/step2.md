@@ -11,7 +11,7 @@ Create a quiz component Quiz.vue inside the components folder.
 The file will be empty so far.
 
 Normally Vue components contain a template, a script and a style section.
-The smallest Vue component looks like that:
+The smallest Vue component looks like this:
 
 ```html
 <template>
@@ -23,7 +23,7 @@ The smallest Vue component looks like that:
 <style></style>
 ```
 
-It doesn’t provide any meaningful output. Let us put some text within the <div> containers, to see when we are using it, it is used.
+It doesn’t provide any meaningful output. Let us put some text within the `<div>` containers, to see when we are using it, we can see the output on the screen.
 
 ```html
 <template>
@@ -47,7 +47,7 @@ components: {
 }
 ```
 
-This above is the easiest way to do that. It will map your component Quiz to the component element `<Quiz />`. But is also possible to register the component with more settings instead. e.g. with e given name for the component name:
+This above is the easiest way to do that. It will map your component Quiz to the component element `<Quiz />`. But is also possible to register the component with more settings instead. e.g. with a custom name for the component:
 
 ```javascript
 components: {
@@ -65,8 +65,8 @@ The last thing to do is to use the component element `<quiz />` in the template.
 </template>
 ```
 
-Before the Quiz starts, we need a welcome view showed to the user.
-In the Quiz.vue template section we place a picture, a title and a link, which finally starts the quiz.
+Before the Quiz starts, we need a welcome view displayed to the user.
+In the Quiz.vue template section we remove the previous content, and place a picture, a title and a link, which finally starts the quiz.
 
 ```html
 <div>
@@ -136,13 +136,13 @@ For the Quiz.vue we can make some simple stylings like the following.
 </style>
 ```
 
-When you click on the button "Start Quiz" to start the quiz, nothings happens. What is needed to make something happen when the link is clicked, we need to bind an action  to the button. This we could achieved by adding an event modifier `@click`.
+When you click on the button "Start Quiz" to start the quiz, nothing happens. In order to make something happen when the link is clicked, we need to bind an action to the button. This we can achieved by adding the event modifier `@click` to the button inside Quiz.vue's `<template>` section.
 
 ```javascript
-@click="initQuizStage"
+<button class="quiz-button" @click="initQuizStage">Start Quiz</button>
 ```
 
-As value it contains `initQuizStage` where Vue expects a method, which is called when user clicks on the button. Wherefore we are going to define a method in the script section of our component.
+The event modifier contains `initQuizStage` as a value. Here Vue expects a method, which is called when a user clicks on the button. Therefore we are going to define a method with the same name in the script section of our component.
 
 ```javascript
 // Quiz.js
@@ -157,11 +157,11 @@ export default {
 </script>
 ```
 
-It only prints “Start the quiz…” to the console. Before ongoing and implementing the `initQuizStage` we need more data. We need the movie titles of all Harry Potter movies. But also the data for quiz questions.
+It only prints “Start the quiz…” to the console. Before moving on and implementing the `initQuizStage` we need more data. We need the movie titles of all Harry Potter movies. But also the data for quiz questions.
 
-Here we are going to provide all movie titles to our quiz component. Providing data to child components can be done with props. Props are custom attributes you can register on a component. A value can be passed to a prop attribute, which becomes a property on that component instance.
+Next we are going to provide all movie titles to our Quiz component. Providing data to child components can be done with so-called props. Props are custom attributes you can register on a component to be able to pass data to them from a parent component. A value can be passed to a prop attribute, which becomes a property on that component instance.
 
-In the App.vue extend the quiz element with an props attribute called “movies” and provide it with movies data, which you get from the `data()` method. With the colon in front of the prop name, you are telling Vue that this value inside the brackets is not just a string but a variable.
+In the App.vue extend the quiz element with a props attribute called “movies” and provide it with movies data, which you get from the `data()` method. With the colon in front of the prop name, you are telling Vue that this value inside the brackets is not just a string but a variable.
 
 ```html
 <!-- App.vue -->
@@ -191,7 +191,7 @@ data() {
 }
 ```
 
-If you provide a property to the component, the component has to define that property on the other side before you can use it within it. This is done with introducing the prop in the `props: {}` section.
+If you provide a prop to a component, the receiving component has to define that property on the other side before you can use it. This is done by introducing the prop in the `props: {}` section inside Quiz.vue:
 
 ```html
 <!-- Quiz.vue -->
@@ -216,8 +216,8 @@ To see if it works, we can use a simple list and iterate over the entries of mov
 </ul>
 ```
 
-With the `v-for` directive we can tell vue to iterate over the values in movies and to repeat this element with each value provided during each iteration.
-The `{{ movie }}` is the mustache syntax. The mustache tag will be replaced with the value of the movie property on the corresponding data object. It will also be updated whenever the data object’s movie property changes.
+With the `v-for` directive we can tell vue to iterate over the values in movies and to repeat the `<li>` element with each value provided during each iteration.
+The `{{ movie }}` is the mustache syntax. The mustache tag will be replaced with movie names, which are saved in the property movies (which we defined earlier). It will also be updated whenever the component's movies property changes.
 
 Let’s ensure that the part with the printed movies list is only shown when `initQuizStage` is clicked. This can be achieved by using the `stage` computed property and with the `v-if` directive in the template. The `v-if` directive validates the expression of its content. When it is true, the component is rendered and shown, if not, it is not rendered.
 
