@@ -7,13 +7,13 @@
     <h1 class="quiz-heading">{{ title }}</h1>
     <button class="quiz-button" v-if="stage==='welcome'" @click="initQuizStage">Start Quiz</button>
     <ul class="quiz-choices" v-if="stage==='quiz'">
-      <li v-for="answerNo in answers" :key="answerNo">
+      <li v-for="answerNumber in answers" :key="answerNumber">
         <button
-          @click="handleAnswer(answerNo)"
+          @click="handleAnswer(answerNumber)"
           class="quiz-button"
-          :class="{ 'correct': evaluate(answerNo) && userAnswer === answerNo,
-            'wrong': !evaluate(answerNo) && userAnswer === answerNo
-          }">{{ movies[answerNo - 1] }}
+          :class="{ 'correct': isCorrectAnswer(answerNumber) && currentUserAnswer === answerNumber,
+            'wrong': !isCorrectAnswer(answerNumber) && currentUserAnswer === answerNumber
+          }">{{ movies[answerNumber - 1] }}
         </button>
       </li>
     </ul>
@@ -35,8 +35,8 @@ export default {
   data() {
     return {
       questions: [],
-      currentQuestionNo: 0,
-      userAnswer: null,
+      currentQuestionNumber: 0,
+      currentUserAnswer: null,
     }
   },
   async mounted() {
@@ -46,36 +46,36 @@ export default {
   },
   computed: {
     stage() {
-        return !this.currentQuestionNo ? 'welcome' : 'quiz';
+        return this.currentQuestionNumber === 0 ? 'welcome' : 'quiz';
     },
     image() {
-      return this.currentQuestionNo
-      ? this.questions[this.currentQuestionNo].img
+      return this.currentQuestionNumber
+      ? this.questions[this.currentQuestionNumber].img
       : "https://media0.giphy.com/media/Bh3YfliwBZNwk/giphy.gif?cid=3640f6095c852266776c6f746fb2fc67";
     },
     title() {
-      return this.currentQuestionNo
+      return this.currentQuestionNumber
       ? 'Which movie is this?'
       : 'How Well Do You Know the Harry Potter Movies?';
     },
     answers() {
-    return this.currentQuestionNo
-        ? this.questions[this.currentQuestionNo - 1].answers
+    return this.currentQuestionNumber
+        ? this.questions[this.currentQuestionNumber - 1].answers
         : [];
     }
   },
   methods: {
     initQuizStage() {
-      this.currentQuestionNo = 1;
+      this.currentQuestionNumber = 1;
     },
-    evaluate(answerNo) {
+    isCorrectAnswer(answerNumber) {
       return (
-        this.userAnswer &&
-        answerNo === this.questions[this.currentQuestionNo - 1].correct
+        this.currentUserAnswer &&
+        answerNumber === this.questions[this.currentQuestionNumber - 1].correct
       );
     },
-    handleAnswer(answerNo) {
-      this.userAnswer = answerNo;
+    handleAnswer(answerNumber) {
+      this.currentUserAnswer = answerNumber;
     }
   }
 };
