@@ -237,18 +237,18 @@ export default {
   },
   data() {
     return {
-      currentQuestionNumber: 0
+      currentQuestionNo: 0
     };
   },
   computed: {
     // ....
     stage() {
-        return this.currentQuestionNumber === 0 ? 'welcome' : 'quiz';
+        return !this.currentQuestionNo ? 'welcome' : 'quiz';
     }
   },
   methods: {
     initQuizStage() {
-      this.currentQuestionNumber = 1;
+      this.currentQuestionNo = 1;
   }
 };
 </script>
