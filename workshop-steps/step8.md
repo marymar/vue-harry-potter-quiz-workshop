@@ -4,7 +4,7 @@ When all question are answered and the user arrived the end of the quiz, we want
 
 We have some nice texts which are shown to the user up to the score she achieved.
 
-We are enhancing the App.vue with the resultData data which is provided to the Quiz.vue as property.
+We are enhancing the App.vue with the resultsInfo data which is provided to the Quiz.vue as property.
 
 ```html
 <!-- App.vue -->
@@ -44,7 +44,8 @@ resultsInfo: {
 };
 ```
 
-From the `quiz stage`we have to switch to the `result stage`. We will define a method for it. Because when a refresh by user is done, and the application needs to initialize again, we have to take this into count, when the component is mounted.
+From the `quiz stage`we have to switch to the `result stage`. We will define a method for it. 
+Because when a refresh by the user is done, and the application needs to initialize again, we have to take this into account, when the component is mounted.
 
 ```javascript
   // ...
@@ -85,7 +86,7 @@ From the `quiz stage`we have to switch to the `result stage`. We will define a m
   // ...
 ```
 
-When switcheing from one to next question, we additional have to check now, if the arrived the quiz end. If so, we have to change the stage.
+When switcheing from one to next question, we additionally have to check now, if we arrived at the quiz end. If so, we have to change the stage.
 
 ```javascript
 // ...
@@ -154,6 +155,12 @@ image() {
 }
 // ...
 ```
+
+
+That's it! You've completed your very first Harry Potter movie quiz app with Vue.js!
+Well done :)
+
+PS: Please let us know if you have any feedback on this tutorial, we would really appreciate it.
 
 ---
 [Prev: Step #7 - Introducing usage of store and saving data in local storage](step7.md)

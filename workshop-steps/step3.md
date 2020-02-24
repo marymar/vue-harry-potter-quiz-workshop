@@ -1,10 +1,10 @@
 # Step 3: Using the Quiz data
 
 Beside the movie data we need also the quiz data with the movie clip and the choices which movie it is actually.
-This data we will get from a JSON (Javascript Object Notation). JSON is the description of an Object in more Human readable way. It is mainly used to transfer information between systems.
+This data we will get from a JSON (Javascript Object Notation) file. JSON is the description of an Object in a more Human readable way. It is mainly used to transfer information between systems.
 https://en.wikipedia.org/wiki/JSON
 
-It contains a list (array) of question. Each question contains 4 different numbers, which matches to the movies we are going to provide as labels to the buttons of choices. It also contains the correct answer and furthermore the movie scene as link to the giphy image, which has to be guessed.
+It contains a list (array) of question. Each question contains 4 different numbers, which matches to the movies we are going to provide as labels to the buttons of answer choices. It also contains the correct answer and furthermore the movie scene as link to the giphy image, which has to be guessed.
 
 
 ```json
@@ -65,7 +65,7 @@ async mounted() {
 Now we are able to use this loaded questions and to enhance the `initQuizStage` and to use this data and provide the first question to the user.
 
 Will start to replace the image we use so far in the Quiz component to be changed dynamically in terms of the question we are showing.
-To do so some steps are needed. First we need to know which question is in order. We will store the information within the `currentQuestionNo` instance property. Than we have to provide the right image which we can do by using a computed property. A computed property in Vue is a instance property as well, but the main advantage of it, is that it can be build by different properties together. Vue will watch for changes in dependent properties, and if they changes the computed property will be evaluated again. On the over hand it will be kept cached and only the cached value is provided.
+To do so some steps are needed. First we need to know which question is in order. We will store the information within the `currentQuestionNo` instance property. Than we have to provide the right image which we can do by using a computed property. A computed property in Vue is a instance property as well, but the main advantage of it, is that it can be build by different properties together. Vue will watch for changes in dependent properties, and if they changes the computed property will be evaluated again. On the other hand it will be kept cached and only the cached value is provided.
 
 ```html
 <!-- Quiz.vue -->
@@ -87,7 +87,7 @@ computed: {
 // ...
 ```
 
-We are going to do the similar for the title. Because with the start of the script we want to change the title from “How Well Do You Know the Harry Potter Movies?” to “Which movie is this?”
+We are going to do something similar for the title. Because with the start of the script we want to change the title from “How Well Do You Know the Harry Potter Movies?” to “Which movie is this?”
 
 ```javascript
 // Quiz.vue

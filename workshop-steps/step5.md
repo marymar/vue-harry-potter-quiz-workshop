@@ -1,9 +1,9 @@
 # Step 5: Evaluate the option which was clicked
 
-Once placed all possibilities we need to add the click event listener to the options and evaluate, if the right choice was made by the user.
+Now that we offered the user all possible quiz answers, we need to add a click event listener to the option buttons and evaluate, if the right choice was made by the user.
 
-Define two more methods which evaluates the choice
-and handles the answer.
+Define two more methods which evaluate the choice
+and handle the answer.
 
 ```html
 <!-- Quiz.vue --->

@@ -6,7 +6,7 @@ To change this and improve and save data, we are going to use the local Storage 
 
 A state management becomes really useful for larger apps. Apps can often grow in complexity, due to multiple pieces of state scattered across many components and the interactions between them. A state management serves a centralized store for all the components in an app, with rules ensuring that the state can only be mutated in a predictable fashion. The convention is, that components are never allowed to directly mutate state that belongs to the store, but should instead dispatch events that notify the store to perform actions.
 
-We are going to use a lightweight implementation of state management in Vue.js with realized with Observables. This is a function that returns a reactive instance of a given object.
+We are going to use a lightweight implementation of state management in Vue.js which is realized with Observables. This is a function that returns a reactive instance of a given object.
 
 Some of the following data we want to handle via the store:
 - questions
@@ -17,7 +17,7 @@ Some of the following data we want to handle via the store:
 - userAnswers
 - ...
 
-First we are defining the store with Vue observables which expects an object with all properties we want to observe.
+First we are defining the store with Vue observables which expects an object with all properties we want to observe. Create a directory "store" and inside it a file called "index.js" with the following content:
 
 ```javascript
 // store/index.js
@@ -100,8 +100,8 @@ export const actions = {
 ```
 
 Now, that we defined our store we need to use it from the components side.
-First replace the `fetchData` in the Quiz.vue with the action `fetchData()` from the store.
-Second we will extract the initialization of the stage depending on which is active. Although we are going to store data, we have to do some additional work, for initialization at the beginning and maybe, if we want to play the quiz again from the beginning.
+First replace the contents of the mounted function in the Quiz.vue with the action `fetchData()` from the store.
+Second we will extract the initialization of the quiz stage depending on which is active. Although we are going to store data, we have to do some additional work, for initialization at the beginning and maybe, if we want to play the quiz again from the beginning.
 
 So write two additional methods: `initWelcomeStage()` and `initQuizStage()`.
 later on we will need a third one, for the score stage.
@@ -124,7 +124,7 @@ async mounted() {
 ```
 
 Then we want to use all data from the store.
-Therefore, we have to change the computed properties for img(), title() and answers().
+Therefore, we have to add the computed properties for img(), title() and answers().
 
 ```javascript
 // Quiz.vue
@@ -147,7 +147,7 @@ computed: {
   },
 ```
 
-Within the template where we check, if the welcome stage have to be shown or the quiz actually started and we want to show the question instead, we are using the `stage` for evaluation. But the `stage` is now part of the store. And before looking up `stage` in the store we would have to check if the store is initialized. To avoid this, we are introducing another computed property `stage`. This helps not being forced to check if the store can be used so far.
+Within the template where we check, if the welcome stage has to be shown or the quiz actually started and we want to show the question instead, we are using the `stage` for evaluation. But the `stage` is now part of the store. And before looking up `stage` in the store we would have to check if the store is initialized. To avoid this, we are introducing another computed property `stage`. This helps not being forced to check if the store can be used so far.
 
 ```javascript
 // Quiz.vue
