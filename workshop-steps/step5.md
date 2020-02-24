@@ -2,17 +2,16 @@
 
 Once placed all possibilities we need to add the click event listener to the options and evaluate, if the right choice was made by the user.
 
-Define two more methods which evaluates the choice
-and handles the answer.
+Define two more methods which evaluates the choice and handles the answer.
 
 ```html
 <!-- Quiz.vue --->
 <button
-          @click="handleAnswer(answerNo)"
+          @click="handleAnswer(answerNumber)"
           class="quiz-button"
-          :class="{ 'correct': evaluate(answerNo) && userAnswer === answerNo,
-            'wrong': !evaluate(answerNo) && userAnswer === answerNo
-          }">{{ movies[answerNo - 1] }}
+          :class="{ 'correct': isCorrectAnswer(answerNumber) && currentUserAnswer === answerNumber,
+            'wrong': !isCorrectAnswer(answerNumber) && currentUserAnswer === answerNumber
+          }">{{ movies[answerNumber - 1] }}
 </button>
 ```
 
@@ -21,19 +20,19 @@ and handles the answer.
 data() {
     return {
       // ...
-      userAnswer: null
+      currentUserAnswer: null
 }
 // ...
 methods: {
 // ...
-  evaluate(answerNo) {
+  isCorrectAnswer(answerNumber) {
     return (
-      this.userAnswer &&
-      answerNo === this.questions[this.currentQuestionNo - 1].correct
+      this.currentUserAnswer &&
+      answerNumber === this.questions[this.currentQuestionNumber - 1].correct
     );
   },
-  handleAnswer(answerNo) {
-    this.userAnswer = answerNo;
+  handleAnswer(answerNumber) {
+    this.currentUserAnswer = answerNumber;
   }
 // ...
 }
@@ -56,3 +55,4 @@ Otherwise you wouldn't see any changes in the browser.
 [Prev: #4 - Displaying possible movie options to user](step4.md)
 
 [Next: Step #6 - Proceed with next question](step6.md)
+

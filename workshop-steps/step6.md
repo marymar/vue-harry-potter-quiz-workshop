@@ -4,10 +4,21 @@ After evaluation was done. We will show the result to the user for a short time 
 
 Additional to that we should store the given answer  into an array, which we will use to calculate the score at the end of the quiz.
 
+Also add another variable inside data, which holds all given answers.
+
+```javascript
+data() {
+  return {
+    ...
+    userAnswers: []
+  }
+}
+```
+
 ```javascript
 <!-- Quiz.vue --->
 handleAnswer(answerNo) {
-    this.userAnswer = answerNo;
+    this.currentUserAnswer = answerNo;
     this.userAnswers.push(answerNo);
 
     setTimeout(() => {
@@ -15,7 +26,7 @@ handleAnswer(answerNo) {
     }, 1000);
 },
 nextQuestion() {
-    this.userAnswer = null;
+    this.currentUserAnswer = null;
     ++this.currentQuestionNo;
 }
 ```
