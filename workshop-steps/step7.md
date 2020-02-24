@@ -33,7 +33,7 @@ export const store = Vue.observable({
     correct: null,
     answers: []
   },
-  currentQuestionNo: null,
+  currentQuestionNumber: null,
   userAnswers: []
 });
 ```
@@ -55,10 +55,10 @@ export const mutations = {
   setTitle(title) {
     store.title = title;
   },
-  setCurrentQuestion(questionNo) {
-    store.currentQuestionNo = questionNo;
-    store.currentQuestion = { ...store.questions[questionNo - 1] };
-    localStorage.currentQuestionNo = questionNo;
+  setCurrentQuestion(questionNumber) {
+    store.currentQuestionNumber = questionNumber;
+    store.currentQuestion = { ...store.questions[questionNumber - 1] };
+    localStorage.currentQuestionNumber = questionNumber;
   },
   addUserAnswer(userAnswer) {
     store.userAnswers.push(userAnswer);
@@ -87,8 +87,8 @@ export const actions = {
     mutations.setQuestions(res.questions);
     mutations.setStage(localStorage.stage || "welcome");
 
-    const no = Number(localStorage.currentQuestionNo) || null;
-    mutations.setCurrentQuestion(no);
+    const number = Number(localStorage.currentQuestionNumber) || null;
+    mutations.setCurrentQuestion(number);
 
     const answers = localStorage.userAnswers
       ? JSON.parse(localStorage.userAnswers)
@@ -182,23 +182,23 @@ import { store, actions, mutations } from "../store";
     },
     initQuizStage() {
       mutations.setStage("quiz");
-      mutations.setCurrentQuestion(+store.currentQuestionNo || 1);
+      mutations.setCurrentQuestion(+store.currentQuestionNumber || 1);
       mutations.setTitle("Which movie is this?");
     },
-    evaluate(answerNo) {
-      return this.userAnswer && answerNo === store.currentQuestion.correct;
+    isCorrectAnswer(answerNumber) {
+      return this.currentUserAnswer && answerNumber === store.currentQuestion.correct;
     },
-    handleAnswer(answerNo) {
-      this.userAnswer = answerNo;
-      mutations.addUserAnswer(answerNo);
+    handleAnswer(answerNumber) {
+      this.currentUserAnswer = answerNumber;
+      mutations.addUserAnswer(answerNumber);
 
       setTimeout(() => {
         this.nextQuestion();
       }, 1000);
     },
     nextQuestion() {
-      this.userAnswer = null;
-      mutations.setCurrentQuestion(store.currentQuestionNo + 1);
+      this.currentUserAnswer = null;
+      mutations.setCurrentQuestion(store.currentQuestionNumber + 1);
     }
   }
     //...

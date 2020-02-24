@@ -7,13 +7,13 @@
     <h1 class="quiz-heading">{{ title }}</h1>
     <button class="quiz-button" v-if="stage==='welcome'" @click="initQuizStage">Start Quiz</button>
     <ul class="quiz-choices" v-if="stage==='quiz'">
-      <li v-for="answerNo in answers" :key="answerNo">
+      <li v-for="answerNumber in answers" :key="answerNumber">
         <button
-          @click="handleAnswer(answerNo)"
+          @click="handleAnswer(answerNumber)"
           class="quiz-button"
-          :class="{ 'correct': evaluate(answerNo) && userAnswer === answerNo,
-            'wrong': !evaluate(answerNo) && userAnswer === answerNo
-          }">{{ movies[answerNo - 1] }}
+          :class="{ 'correct': isCorrectAnswer(answerNumber) && currentUserAnswer === answerNumber,
+            'wrong': !isCorrectAnswer(answerNumber) && currentUserAnswer === answerNumber
+          }">{{ movies[answerNumber - 1] }}
         </button>
       </li>
     </ul>
@@ -37,8 +37,8 @@ export default {
   data() {
     return {
       questions: [],
-      currentQuestionNo: 0,
-      userAnswer: null,
+      currentQuestionNumber: 0,
+      currentUserAnswer: null,
       userAnswers: [],
     }
   },
@@ -56,7 +56,7 @@ export default {
         return store.stage;
     },
     image() {
-      return store.currentQuestionNo
+      return store.currentQuestionNumber
       ? store.currentQuestion.img
       : "https://media0.giphy.com/media/Bh3YfliwBZNwk/giphy.gif?cid=3640f6095c852266776c6f746fb2fc67";
     },
@@ -79,25 +79,25 @@ export default {
     },
     initQuizStage() {
       mutations.setStage("quiz");
-      mutations.setCurrentQuestion(+store.currentQuestionNo || 1);
+      mutations.setCurrentQuestion(+store.currentQuestionNumber || 1);
       mutations.setTitle("Which movie is this?");
     },
-    evaluate(answerNo) {
+    isCorrectAnswer(answerNumber) {
       return (
-        this.userAnswer &&
-        answerNo === store.currentQuestion.correct);
+        this.currentUserAnswer &&
+        answerNumber === store.currentQuestion.correct);
     },
-    handleAnswer(answerNo) {
-      this.userAnswer = answerNo;
-      mutations.addUserAnswer(answerNo);
+    handleAnswer(answerNumber) {
+      this.currentUserAnswer = answerNumber;
+      mutations.addUserAnswer(answerNumber);
 
       setTimeout(() => {
         this.nextQuestion();
       }, 1000);
     },
     nextQuestion() {
-      this.userAnswer = null;
-      mutations.setCurrentQuestion(store.currentQuestionNo + 1);
+      this.currentUserAnswer = null;
+      mutations.setCurrentQuestion(store.currentQuestionNumber + 1);
     }
   }
 }
