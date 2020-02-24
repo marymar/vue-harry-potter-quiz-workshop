@@ -50,7 +50,7 @@ props: {
 data() {
     return {
       questions: [],
-      currentQuestionNo: 0
+      currentQuestionNumber: 0
     };
   },
 
@@ -65,7 +65,7 @@ async mounted() {
 Now we are able to use this loaded questions and to enhance the `initQuizStage` and to use this data and provide the first question to the user.
 
 Will start to replace the image we use so far in the Quiz component to be changed dynamically in terms of the question we are showing.
-To do so some steps are needed. First we need to know which question is in order. We will store the information within the `currentQuestionNo` instance property. Than we have to provide the right image which we can do by using a computed property. A computed property in Vue is a instance property as well, but the main advantage of it, is that it can be build by different properties together. Vue will watch for changes in dependent properties, and if they changes the computed property will be evaluated again. On the over hand it will be kept cached and only the cached value is provided.
+To do so some steps are needed. First we need to know which question is in order. We will store the information within the `currentQuestionNumber` instance property. Than we have to provide the right image which we can do by using a computed property. A computed property in Vue is a instance property as well, but the main advantage of it, is that it can be build by different properties together. Vue will watch for changes in dependent properties, and if they changes the computed property will be evaluated again. On the over hand it will be kept cached and only the cached value is provided.
 
 ```html
 <!-- Quiz.vue -->
@@ -79,8 +79,8 @@ export default {
 // ...
 computed: {
     image() {
-      return this.currentQuestionNo
-        ? this.questions[this.currentQuestionNo].img
+      return this.currentQuestionNumber
+        ? this.questions[this.currentQuestionNumber].img
         : "https://media0.giphy.com/media/Bh3YfliwBZNwk/giphy.gif?cid=3640f6095c852266776c6f746fb2fc67";
     }
   },
@@ -93,7 +93,7 @@ We are going to do the similar for the title. Because with the start of the scri
 // Quiz.vue
 computed: {
     title() {
-      return this.currentQuestionNo
+      return this.currentQuestionNumber
         ? "Which movie is this?"
         : "How Well Do You Know the Harry Potter Movies?";
     }
