@@ -8,8 +8,8 @@ We also need to change the data over which we iterate and use instead the data o
 ```html
 <!--Quiz.vue -->
 <ul class="quiz-choices" v-if="stage===’quiz’">
-      <li v-for="answerNo in answers" :key="answerNo">
-            <button class="quiz-button">{{ movies[answerNo] }}</button>
+      <li v-for="answerNumber in answers" :key="answerNumber">
+            <button class="quiz-button">{{ movies[answerNumber] }}</button>
       </li>
 </ul>
 ```
@@ -17,8 +17,8 @@ We also need to change the data over which we iterate and use instead the data o
 ```javascript
 // Quiz.vue
 answers() {
-    return this.currentQuestionNo
-        ? this.questions[this.currentQuestionNo - 1].answers
+    return this.currentQuestionNumber
+        ? this.questions[this.currentQuestionNumber - 1].answers
         : [];
 }
 ```
