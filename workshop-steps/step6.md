@@ -18,7 +18,7 @@ data() {
 ```javascript
 <!-- Quiz.vue --->
 handleAnswer(answerNo) {
-    this.userAnswer = answerNo;
+    this.currentUserAnswer = answerNo;
     this.userAnswers.push(answerNo);
 
     setTimeout(() => {
@@ -26,7 +26,7 @@ handleAnswer(answerNo) {
     }, 1000);
 },
 nextQuestion() {
-    this.userAnswer = null;
+    this.currentUserAnswer = null;
     ++this.currentQuestionNo;
 }
 ```
