@@ -22,17 +22,17 @@ export default {
   },
   data() {
     return {
-      currentQuestionNo: 0,
+      currentQuestionNumber: 0,
     }
   },
   computed: {
     stage() {
-        return !this.currentQuestionNo ? 'welcome' : 'quiz';
+        return this.currentQuestionNumber === 0 ? 'welcome' : 'quiz';
     }
   },
   methods: {
     initQuizStage() {
-      this.currentQuestionNo = 1;
+      this.currentQuestionNumber = 1;
     }
   }
 };
