@@ -10,7 +10,7 @@ export const store = Vue.observable({
     correct: null,
     answers: []
   },
-  currentQuestionNo: null,
+  currentQuestionNumber: null,
   userAnswers: []
 });
 
@@ -26,10 +26,10 @@ export const mutations = {
   setTitle(title) {
     store.title = title;
   },
-  setCurrentQuestion(questionNo) {
-    store.currentQuestionNo = questionNo;
-    store.currentQuestion = { ...store.questions[questionNo - 1] };
-    localStorage.currentQuestionNo = questionNo;
+  setCurrentQuestion(questionNumber) {
+    store.currentQuestionNumber = questionNumber;
+    store.currentQuestion = { ...store.questions[questionNumber - 1] };
+    localStorage.currentQuestionNumber = questionNumber;
   },
   addUserAnswer(userAnswer) {
     store.userAnswers.push(userAnswer);
@@ -52,8 +52,8 @@ export const actions = {
     mutations.setQuestions(res.questions);
     mutations.setStage(localStorage.stage || "welcome");
 
-    const no = Number(localStorage.currentQuestionNo) || null;
-    mutations.setCurrentQuestion(no);
+    const number = Number(localStorage.currentQuestionNumber) || null;
+    mutations.setCurrentQuestion(number);
 
     const answers = localStorage.userAnswers
       ? JSON.parse(localStorage.userAnswers)
