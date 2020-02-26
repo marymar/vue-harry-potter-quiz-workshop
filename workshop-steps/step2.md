@@ -1,16 +1,21 @@
 # Step 2: Create the first own Vue component "Quiz.vue"
 
-Now we are going to write our first own component in Vue. All components are also Vue instances.
+Now we are going to write our first own component in Vue. All components are also called Vue instances.
 
-Our Vue projects actually provides a folder structure which is almost valid for many js frameworks. In the components folder all vue components are stored. Here you can also find the HelloWorld.vue component which contains all the helping text.
+Our Vue project actually provides a folder structure which is almost valid for many JS frameworks.  
+In the components folder all vue components are stored. There you can also find the **HelloWorld.vue** component which contains all the helping text.
 
-Create a quiz component Quiz.vue inside the components folder.
+Let's create a quiz component **Quiz.vue** inside the components folder.
 
 ![components folder](img/components.png)
 
 The file will be empty so far.
 
-Normally Vue components contain a template, a script and a style section.
+Normally Vue components contain:  
+- A template
+- A script
+- Style section
+
 The smallest Vue component looks like this:
 
 ```html
@@ -23,7 +28,7 @@ The smallest Vue component looks like this:
 <style></style>
 ```
 
-It doesn’t provide any meaningful output. Let us put some text within the `<div>` containers, to see when we are using it, we can see the output on the screen.
+This doesn’t provide any meaningful output, but let's put some text within the `<div>` containers, and see when we are using it what it will output on the screen.
 
 ```html
 <template>
@@ -31,7 +36,8 @@ It doesn’t provide any meaningful output. Let us put some text within the `<di
 </template>
 ```
 
-Now, we are including out brand new component in the App.vue. Just remove the `<HelloWorld />` component and use the Quiz component instead.
+Now, we are including a brand new component in the App.vue.  
+Just remove the `<HelloWorld />` component and use the Quiz component instead.
 
 To use our Quiz component some steps are needed. First we have to import the component within the script section.
 
@@ -39,7 +45,7 @@ To use our Quiz component some steps are needed. First we have to import the com
 import Quiz from "./components/Quiz.vue";
 ```
 
-After that, the Quiz component has to be registered within the App.vue, which is done by adding the imported Quiz  to the App components options.
+After that, the Quiz component has to be registered within the App.vue, which is done by adding the imported Quiz to the App components options.
 
 ```javascript
 components: {
@@ -47,7 +53,8 @@ components: {
 }
 ```
 
-This above is the easiest way to do that. It will map your component Quiz to the component element `<Quiz />`. But is also possible to register the component with more settings instead. e.g. with a custom name for the component:
+This above is the easiest way to do that. It will map your component Quiz to the component element `<Quiz />`.  
+But is also possible to register the component with more settings. E.g. With a custom name for the component:
 
 ```javascript
 components: {
@@ -66,7 +73,7 @@ The last thing to do is to use the component element `<quiz />` in the template.
 ```
 
 Before the Quiz starts, we need a welcome view displayed to the user.
-In the Quiz.vue template section we remove the previous content, and place a picture, a title and a link, which finally starts the quiz.
+In the Quiz.vue template section we'll remove the previous content, and place a picture, a title and a link, which finally will start the quiz.
 
 ```html
 <div>
