@@ -1,6 +1,6 @@
 # Step 1: Setting up the Vue App with CodeSandbox	
 
-Create a new sandbox Vue project by going to CodeSandbox and clicking on the “Create Sandbox” box.  	
+Create a new sandbox Vue project by going to CodeSandbox and clicking on the “Create Sandbox” box.  
 The options for which kind of sandbox you want to have will appear.	
 
 ![Create new Sandbox](img/create-new-sandbox.png)	
