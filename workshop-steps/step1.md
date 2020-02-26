@@ -35,7 +35,7 @@ Every Vue application, no matter how big or small, starts with the root Vue inst
 
 For more information check out:	
 - https://codingexplained.com/coding/front-end/vue-js/mounting-templates-dynamically	
-- https://vuejs.org/v2/guide/instance.html.	
+- https://vuejs.org/v2/guide/instance.html	
 
 In the first lines of the `main.js` you can find some imports.  	
 The first one imports the Vue module and the second one is the very first component we will use - it is the App component.	
