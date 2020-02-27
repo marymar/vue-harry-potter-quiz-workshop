@@ -1,6 +1,6 @@
 # Step 5: Evaluate the option which was clicked
 
-Now that we offered the user all possible quiz answers, we need to add a click event listener to the option buttons and evaluate if the correct choice was made by the user.
+Now that we offered the user all possible quiz answers, we need to add a click event listener to the options buttons and evaluate if the correct choice was made by the user.
 
 Define two more methods that evaluate the choice and handle the answer.
 
