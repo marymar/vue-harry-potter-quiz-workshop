@@ -1,10 +1,11 @@
 # Step 4: Displaying possible movie options to user
 
-So, as you surely remember, we have displayed in the list with the answers, simply all the movies that exist.
-But what we actually want, is, to provide some suggestions to the user and let her guess, which one of this is the right answer. 
-To achieve this, we will use the buttons: once one of them is clicked, it turns green, if the answer is correct or red if it isn't.
+So far we have displayed the list with the answers, including all the movies that exist.
+But what we want is to provide some suggestions to the user and let them guess which one of these answers is the correct one.  
 
-We also need to change the data over which we iterate and use instead the data of the  current question. We are going to use again a computed property which just returns the possible answers from the current question.
+To achieve this, we'll use the buttons. Once one of them is clicked, it turns green if the answer is correct or red if the answer is incorrect.
+
+We also need to change the data used to iterate and employ the data of the current question. We're going to use again a computed property, which returns the possible answers from the current question.
 
 ```html
 <!--Quiz.vue -->
@@ -18,9 +19,14 @@ We also need to change the data over which we iterate and use instead the data o
 ```javascript
 // Quiz.vue
 answers() {
-    return this.currentQuestionNumber
-        ? this.questions[this.currentQuestionNumber - 1].answers
-        : [];
+      return this.currentQuestionNumber
+            ? this.questions[this.currentQuestionNumber - 1].answers
+            : [];
+
+      /*
+            Learn about ternary operators here:
+            - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+      */
 }
 ```
 
