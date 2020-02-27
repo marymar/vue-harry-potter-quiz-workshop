@@ -94,7 +94,7 @@ When switching to the next question, we additionally have to check if the user h
 
 ```javascript
 // ...
-handleAnswer(answerNo) {
+handleAnswer(answerNumber) {
   // ...
   setTimeout(() => {
       if (store.currentQuestionNumber < store.questions.length) {
