@@ -171,7 +171,7 @@ computed: {
   },
 ```
 
-Within the template where we check if the welcome stage has to be shown or the quiz started and we want to show the question instead, we are using the `stage` for evaluation. But the `stage` is now part of the store. And before looking up `stage` in the store we would have to check if the store is initialized. To avoid this, we are introducing another computed property `stage`. This helps not being forced to check if the store can be used so far.
+Within the template where we check if the welcome stage has to be shown or the quiz started with the questions, we're using the `stage` for evaluation. But the `stage` is now part of the store, and before looking up `stage` in the store we would have to check if the store has initialized. To avoid this, we're introducing another computed property `stage` to help not being forced to check if the store can be used so far.
 
 ```javascript
 // Quiz.vue
