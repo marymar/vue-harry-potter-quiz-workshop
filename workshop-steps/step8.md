@@ -44,10 +44,12 @@ resultsInfo: {
 };
 ```
 
-From the `quiz stage` we have to switch to the `result stage`.  
-To do this, we'll define a method for it.  
+From the `quiz stage` we have to switch to the `result stage`. To do this, we'll define a method for it.  
 
 We have to consider when a refresh by the user is done and the application needs to initialize again when the component is mounted.
+
+You can read more about Vue Mounted here:  
+- https://vuejs.org/v2/api/#mounted
 
 ```javascript
   // ...
