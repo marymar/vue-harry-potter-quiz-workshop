@@ -280,16 +280,18 @@ You can read more about Vue Computed Properties here:
       stage() {
           return this.currentQuestionNumber === 0 ? 'welcome' : 'quiz';
 
-          // FYI: We're using a ternary operator in JS.
-          // The above code is equal to this:
-          // if (this.currentQuestionNumber === 0) { 
-          //   'welcome'
-          // } else {
-          //   'quiz'
-          // }
-          //
-          // Learn about ternary operators here:
-          // - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+          /*
+            FYI: We're using a ternary operator in JS.
+            The above code is equal to this:
+            if (this.currentQuestionNumber === 0) { 
+              'welcome'
+            } else {
+              'quiz'
+            }
+            
+            Learn about ternary operators here:
+            - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+          */
       }
     },
     methods: {
