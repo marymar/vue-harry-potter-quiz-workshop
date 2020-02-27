@@ -192,7 +192,9 @@ In the App.vue let's extend the quiz element with a props attribute called “mo
     <quiz :movies="movies"/>
   </div>
 </template>
+```
 
+```javascript
 <script>
   export default {
     // ...
@@ -261,7 +263,9 @@ You can read more about Vue Computed Properties here:
 <template>
   <ul class="quiz-choices" v-if="stage==='quiz'"">
 <template>
+```
 
+```javascript
 <script>
   export default {
     props: {
