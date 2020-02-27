@@ -17,28 +17,30 @@ We're enhancing the App.vue with the `resultsInfo` data which is provided to the
 
 ```javascript
 // App.vue
-data: {
-  // ...
-resultsInfo: {
-    0: {
-      text: "Practice, practice, practice! <br>You'll be a clever as Dumbledore in no time!",
-      img: "https://media0.giphy.com/media/720g7C1jz13wI/giphy.gif?cid=3640f6095c869951776a4a7a5110b5dc"
-    },
-    1: {
-      text: "You still have to practice!",
-      img: "https://media0.giphy.com/media/720g7C1jz13wI/giphy.gif?cid=3640f6095c869951776a4a7a5110b5dc"
-    },
-    2: {
-      text: "Not too shabby! <br>Have a Harry Potter movie marathon and then try again!",
-      img: "https://media2.giphy.com/media/UeeJAeey9GJjO/giphy.gif?cid=3640f6095c869e703631634241b759c1"
-    },
-    3: {
-      text: "Very good! <br>Have another go and you'll be getting full marks!",
-      img: "https://media.giphy.com/media/TGLLaCKWwxUVq/giphy.gif"
-    },
-    4: {
-      text: "TOP MARKS! Nice work! <br>You have some serious wizard wisdom!",
-      img: "https://media.giphy.com/media/9H279yb0blggo/giphy.gif"
+data() {
+  return {
+    // ...
+    resultsInfo: {
+      0: {
+        text: "Practice, practice, practice! <br>You'll be a clever as Dumbledore in no time!",
+        img: "https://media0.giphy.com/media/720g7C1jz13wI/giphy.gif?cid=3640f6095c869951776a4a7a5110b5dc"
+      },
+      1: {
+        text: "You still have to practice!",
+        img: "https://media0.giphy.com/media/720g7C1jz13wI/giphy.gif?cid=3640f6095c869951776a4a7a5110b5dc"
+      },
+      2: {
+        text: "Not too shabby! <br>Have a Harry Potter movie marathon and then try again!",
+        img: "https://media2.giphy.com/media/UeeJAeey9GJjO/giphy.gif?cid=3640f6095c869e703631634241b759c1"
+      },
+      3: {
+        text: "Very good! <br>Have another go and you'll be getting full marks!",
+        img: "https://media.giphy.com/media/TGLLaCKWwxUVq/giphy.gif"
+      },
+      4: {
+        text: "TOP MARKS! Nice work! <br>You have some serious wizard wisdom!",
+        img: "https://media.giphy.com/media/9H279yb0blggo/giphy.gif"
+      }
     }
   }
 };
