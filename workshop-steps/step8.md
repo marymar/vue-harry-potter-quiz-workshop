@@ -2,7 +2,7 @@
 
 When all questions are answered and the user arrives at the end of the quiz, we want to show them their score.
 
-We have already some text prepared, which is displayed to the user with their score achieved.
+We have already text prepared, which is displayed to the user with their score achieved.
 
 We're enhancing the App.vue with the `resultsInfo` data which is provided to the **Quiz.vue** as property.
 
@@ -90,7 +90,7 @@ You can read more about Vue Mounted here:
   // ...
 ```
 
-When switching to the next question, we additionally have to check if the user arrived at the end of the quiz. If so, we have to change the stage.
+When switching to the next question, we additionally have to check if the user has arrived at the end of the quiz. If so, we have to change the stage.
 
 ```javascript
 // ...
@@ -107,7 +107,7 @@ handleAnswer(answerNo) {
 }
 ```
 
-In the **Quiz.vue** we have to define the new property.
+In the **Quiz.vue** we have to define the new property for our user's result.
 
 ```javascript
 
