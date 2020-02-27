@@ -92,8 +92,7 @@ export const mutations = {
 
 As we're using a store now, it makes sense to move the fetching of data away from the Quiz component to the store.  
 
-Fetching the data is an action, and it's defined within the action object of the store.  
-Also in this action, we're handling the loading of stored data from the localStorage.
+Fetching the data is an action, and it's defined within the action object of the store. Also in this action, we're handling the loading of stored data from the localStorage.
 
 ```javascript
 // store/index.js
@@ -117,12 +116,16 @@ export const actions = {
 };
 ```
 
-Now, that we defined our store we need to use it from the components side.
-First replace the contents of the mounted function in the Quiz.vue with the action `fetchData()` from the store.
-Second we will extract the initialization of the quiz stage depending on which is active. Although we are going to store data, we have to do some additional work, for initialization at the beginning and maybe, if we want to play the quiz again from the beginning.
+Now, that we defined our store we need to use it from the components side.  
 
-So write two additional methods: `initWelcomeStage()` and `initQuizStage()`.
-later on we will need a third one, for the score stage.
+First, replace the contents of the mounted function in the **Quiz.vue** with the action `fetchData()` from the store.  
+
+Secondly, extract the initialization of the quiz stage depending on which one is active.  
+
+Although we're going to store data, we have to do some additional work for the initialization at the beginning, and maybe if we want to play the quiz again from the beginning.
+
+So write two additional methods: `initWelcomeStage()` and `initQuizStage()`.  
+Later on we will need a third one for the score stage.
 
 ```html
 <!-- Quiz.vue -->
@@ -141,8 +144,8 @@ async mounted() {
 </script>
 ```
 
-Then we want to use all data from the store.
-Therefore, we have to add the computed properties for img(), title() and answers().
+After this, we want to use all data from the store.  
+Therefore, we have to add the computed properties for `img()`, `title()` and `answers()`.
 
 ```javascript
 // Quiz.vue
