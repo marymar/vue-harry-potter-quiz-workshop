@@ -195,6 +195,7 @@ In the App.vue let's extend the quiz element with a props attribute called “mo
 ```
 
 ```javascript
+/* App.vue */
 <script>
   export default {
     // ...
@@ -266,6 +267,7 @@ You can read more about Vue Computed Properties here:
 ```
 
 ```javascript
+/* Quiz.vue  */
 <script>
   export default {
     props: {
