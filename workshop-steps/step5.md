@@ -2,7 +2,7 @@
 
 Now that we offered the user all possible quiz answers, we need to add a click event listener to the options buttons and evaluate if the correct choice was made by the user.
 
-Define two more methods that evaluate the choice and handle the answer.
+Define two more methods to evaluate the choice and handle the answer.
 
 ```html
 <!-- Quiz.vue --->
@@ -40,8 +40,7 @@ methods: {
 }
 ```
 
-Don't forget to enhance the button style, for the incorrect and correct answer.  
-Otherwise you won't see any changes in the browser.
+Don't forget to enhance the button style for the incorrect and correct answer. Otherwise you won't see any changes in the browser.
 
 ```css
 .quiz-button.wrong {
