@@ -231,8 +231,8 @@ import { store, actions, mutations } from "../store";
 ```
 
 <span style="color:#900;">
-<strong>Hint:</strong>  
-In CodeSandbox we're running into a problem when using `localStorage`. This is because of the iframes needed by CodeSandbox. To get our QuizApp running again, we need to open the view in a new browser window.
+  **Hint:**  
+  In CodeSandbox we're running into a problem when using `localStorage`. This is because of the iframes needed by CodeSandbox. To get our QuizApp running again, we need to open the view in a new browser window.
 </span>
 
 ---
