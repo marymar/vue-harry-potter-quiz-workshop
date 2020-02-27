@@ -21,9 +21,9 @@ data() {
 
 ```javascript
 <!-- Quiz.vue --->
-handleAnswer(answerNo) {
-    this.currentUserAnswer = answerNo;
-    this.userAnswers.push(answerNo);
+handleAnswer(answerNumber) {
+    this.currentUserAnswer = answerNumber;
+    this.userAnswers.push(answerNumber);
 
     setTimeout(() => {
         this.nextQuestion();
