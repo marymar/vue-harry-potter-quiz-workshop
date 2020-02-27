@@ -137,10 +137,11 @@ correctAnswers() {
 ```
 
 Now we have to evaluate which result info has to be shown to the user.  
-Add the detailed result text in an extra element, only shown if the user is on the result's page.
+Add the detailed result text in an extra element and a button to restart the quiz, only shown if the user is on the result's page.
 
 ```html
 <p v-if="this.stage === 'result'" v-html="this.result.text"/>
+<button class="wellcome-button" v-if="stage === 'result'" @click="initQuizStage">Start again</button>
 ```
 
 Maybe you also don't want to keep the last quiz question's image.  
