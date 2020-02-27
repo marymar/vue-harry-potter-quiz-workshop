@@ -29,3 +29,9 @@ The workshop is separated into several steps.
 - [Vue.js Guide](https://vuejs.org/v2/guide/)
 - [Using Vue Observable as a State Store](https://austincooper.dev/2019/08/09/vue-observable-state-store/)
 - [Harry Potter Quiz](https://madewithvuejs.com/harry-potter-movies-quiz)
+
+
+## Vue Vixens References
+- [VueVixens DACH Twitter](https://twitter.com/vuevixensDACH)
+- [VueVixens Slack](https://communityinviter.com/apps/vuevixens/vue-vixens)
+- [VueVixens Site](https://www.vuevixens.org/)
