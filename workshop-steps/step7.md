@@ -90,7 +90,10 @@ export const mutations = {
 };
 ```
 
-As we are using a store now it makes also sense to move the fetching of data away from the Quiz component to the store, too. Fetching the data is an action and it is defined within the action object of the store. Also in this action we are handling to load stored data from the localStorage.
+As we're using a store now, it makes sense to move the fetching of data away from the Quiz component to the store.  
+
+Fetching the data is an action, and it's defined within the action object of the store.  
+Also in this action, we're handling the loading of stored data from the localStorage.
 
 ```javascript
 // store/index.js
