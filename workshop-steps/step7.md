@@ -19,7 +19,7 @@ You can read more about Vue Observables here:
 The following is the data we want to handle via the store:
 - questions
 - currentQuestion
-  - image
+  - img
   - correct
   - answers
 - userAnswers
