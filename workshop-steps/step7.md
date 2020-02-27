@@ -190,9 +190,9 @@ computed: {
 <ul class="quiz-choices" v-else-if="stage === 'quiz'">...</ul>
 ```
 
-If the user makes a choice, we have to change some values in the store to continue with the next question, and to keep in mind which answers the user gave until this point.  
+If the user makes a choice, we have to change some values in the store to continue with the next question, and to save all answers the user gave us until this point.  
 
-We'll need to do this in the defined way and use mutation methods from the store.
+We'll need to do this in a defined way and use mutation methods from the store.
 
 We also have to import the mutations from the store.
 
@@ -231,8 +231,8 @@ import { store, actions, mutations } from "../store";
 ```
 
 <span style="color:#900;">
-<strong>Hint:</strong>
-In the CodeSandbox we are running into a problem when using localStorage. This is up to the iFrames which are needed by CodeSandbox. To get our QuizApp running again, we need to open the vie in a new browser window.
+<strong>Hint:</strong>  
+In CodeSandbox we're running into a problem when using `localStorage`. This is because of the iframes needed by CodeSandbox. To get our QuizApp running again, we need to open the view in a new browser window.
 </span>
 
 ---
