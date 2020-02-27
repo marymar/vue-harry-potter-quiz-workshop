@@ -1,8 +1,11 @@
 # Step 3: Using the Quiz data
 
-Beside the movie data we need also the quiz data with the movie clip and the choices which movie it is actually.
-This data we will get from a JSON (Javascript Object Notation) file. JSON is the description of an Object in a more Human readable way. It is mainly used to transfer information between systems.
-https://en.wikipedia.org/wiki/JSON
+Besides the movie data, we also need the quiz data with the movie clip and the choices of which movie it is.  
+We'll get this data from a JSON (Javascript Object Notation) file. JSON is the description of an object in a more human readable way. It is mainly used to transfer information between systems.
+
+You can read more about JSON here:  
+- https://en.wikipedia.org/wiki/JSON
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON
 
 It contains a list (array) of question. Each question contains 4 different numbers, which matches to the movies we are going to provide as labels to the buttons of answer choices. It also contains the correct answer and furthermore the movie scene as link to the giphy image, which has to be guessed.
 
