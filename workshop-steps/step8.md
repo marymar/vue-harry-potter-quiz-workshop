@@ -1,8 +1,8 @@
 # Step 8: Create the score view
 
-When all question are answered and the user arrives to the end of the quiz, we want to show them their score.
+When all questions are answered and the user arrives to the end of the quiz, we want to show them their score.
 
-We have already some text prepared, which are displayed to the user with their score achieved.
+We have already some text prepared, which is displayed to the user with their score achieved.
 
 We're enhancing the App.vue with the `resultsInfo` data which is provided to the **Quiz.vue** as property.
 
