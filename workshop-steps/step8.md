@@ -144,7 +144,7 @@ Add the detailed result text in an extra element, only shown if the user is on t
 ```
 
 Maybe you also don't want to keep the last quiz question image.  
-If not, enhance the img computed property and check if the stage is result.
+If not, enhance the `image()` computed property and check if the stage is result.
 
 ```javascript
 // ...
