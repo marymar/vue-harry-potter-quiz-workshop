@@ -1,13 +1,14 @@
 # Step 3: Using the Quiz data
 
 Besides the movie data, we also need the quiz data with the movie clip and the choices of which movie it is.  
-We'll get this data from a JSON (Javascript Object Notation) file. JSON is the description of an object in a more human readable way. It is mainly used to transfer information between systems.
+We'll get this data from a JSON (Javascript Object Notation) file.  
+JSON is the description of an object in a more human readable way. It is mainly used to transfer information between systems.
 
 You can read more about JSON here:  
 - https://en.wikipedia.org/wiki/JSON
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON
 
-It contains a list (array) of question. Each question contains 4 different numbers, which matches to the movies we are going to provide as labels to the buttons of answer choices. It also contains the correct answer and furthermore the movie scene as link to the giphy image, which has to be guessed.
+The JSON contains a list (an array) of questions. Each question contains 4 different numbers, which matches to the movies we are going to provide as labels to the buttons of answer choices. It also contains the correct answer and furthermore the movie scene as link to the giphy image, which has to be guessed.
 
 
 ```json
@@ -28,10 +29,14 @@ It contains a list (array) of question. Each question contains 4 different numbe
 }
 ```
 
-To learn more about data primitives, like string, numbers and arrays, which are useful to understand the JSON structure better, we warmly recommend Lydia Hallie. She has written a very good explanation about it. https://www.theavocoder.com/complete-javascript/2018/12/18/primitive-data-types
+To learn more about data primitives, like string, numbers and arrays, which are useful to understand the JSON structure better, we warmly recommend Lydia Hallie. She has written a very good explanation about it:
+- https://www.theavocoder.com/complete-javascript/2018/12/18/primitive-data-types
 
-To load the questions we are going again to provide the Quiz component with the `questions-url` props from where the question can be loaded from. Which we will then use to fetch the data from there. This we will do in the mounted() method  of our Quiz component. The mounted() methods is a Lifecycle Hook, which is called after the instance has been mounted.
+To load the questions we're going to provide the Quiz component with the `questions-url` props from where the questions can be loaded. We'll use this to fetch the data from there.  
+This fetching magic will happen with the mounted() method of our Quiz component. The mounted() method is a lifecycle hook, which is called after the instance has been mounted.
 
+You can read more about Vue Mounted here:  
+- https://vuejs.org/v2/api/#mounted
 
 ```html
 <!-- App.vue -->
