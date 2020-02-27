@@ -1,16 +1,16 @@
 # Step 7: Introducing usage of store and saving data in local storage
 
-Maybe you've realized that every time you are making changes in your code or you do a refresh in the preview, the state has gone away and you have to start the quiz from the beginning.  
+Maybe you've realized that every time you're making changes in your code or you do a refresh in the preview, the state has gone away and you have to start the quiz from the beginning.  
 
-Currently we're not storing our data, so we can’t load information about the current question for the user to answer, or what answers the user has given so far.  
+Currently, we're not storing our data, so we can’t load information about the current question for the user to answer, or what answers the user has given so far.  
 
-To change this and improve saving our data, we're going to use the local Storage and a state management in Vue.  
+To change this and improve saving our data, we're going to use the local Storage and state management in Vue.  
 This will help us to mutate (change) data and state in our app.  
 
-A state management becomes really useful for larger apps.  
-Apps can often grow in complexity, due to multiple pieces of state scattered across many components and interactions between them. A state management serves as a centralized store for all the components in an app, with rules ensuring that the state can only be mutated (changed) in a predictable fashion. The convention is that components are never allowed to directly mutate (change) state that belongs to the store, but should instead dispatch events that notify the store to perform actions.  
+State management becomes really useful for larger apps.  
+Apps can often grow in complexity, due to multiple pieces of state scattered across many components and interactions between them. State management serves as a centralized store for all the components in an app, with rules ensuring that the state can only be mutated (changed) in a predictable fashion. The convention is that components are never allowed to directly mutate (change) state that belongs to the store, but should instead dispatch events that notify the store to perform actions.  
 
-We're going to use a lightweight implementation of state management in Vue.js which is done with observables.  
+We're going to use a lightweight implementation of state management in Vue.js, which is done with observables.  
 This is a function that returns a reactive instance of a given object.
 
 You can read more about Vue Observables here:  
@@ -27,7 +27,7 @@ The following is the data we want to handle via the store:
 
 First, we're defining the store with Vue observables which expects an object with all properties we want to observe.  
 
-Create a directory "store" and inside it a file called "index.js" with the following content:
+Create a directory "store" and inside it, a file called "index.js" with the following content:
 
 ```javascript
 // store/index.js
@@ -48,8 +48,10 @@ export const store = Vue.observable({
 });
 ```
 
-For changing our values in the store we have to use a defined way for it and to do it over set methods, which are defined within the mutation property. Therefore we have to define further for each property in the store a set method, if we want to mutate those values.
-We will also store the data in the localStorage of the browser.
+For changing our values in the store we have to use a defined way for it, and do it over a set of methods, which are defined within the mutation property.  
+
+Therefore, we have to define further each property inside the store as a set method if we want to mutate those values.
+We will also store the data in the `localStorage` of the browser.
 
 ```javascript
 // store/index.js
