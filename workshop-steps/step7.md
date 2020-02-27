@@ -190,7 +190,9 @@ computed: {
 <ul class="quiz-choices" v-else-if="stage === 'quiz'">...</ul>
 ```
 
-If the user makes a choice we have to change some values in the store to continue with next question and to keep in mind, which answers the user gave. Now we have to do that in the defined way and to use the mutation methods from the store.
+If the user makes a choice, we have to change some values in the store to continue with the next question, and to keep in mind which answers the user gave until this point.  
+
+We'll need to do this in the defined way and use mutation methods from the store.
 
 We also have to import the mutations from the store.
 
