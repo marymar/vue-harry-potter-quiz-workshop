@@ -101,8 +101,8 @@ html {
 }
 body {
   height: 100%;
-  background: #020815; // Black
-  color: #eee; // Gray
+  background: #020815; /* Black */
+  color: #eee; /* Gray */
 }
 
 #app {
@@ -128,7 +128,7 @@ For the **Quiz.vue** we can make some simple stylings like the following.
 }
 
 .quiz-button {
-  color: #eee; // Gray
+  color: #eee; /* Gray */
   text-decoration: none;
   cursor: pointer;
   display: inline-block;
@@ -138,7 +138,7 @@ For the **Quiz.vue** we can make some simple stylings like the following.
   transition: border-color 0.5s;
 }
 .quiz-button:hover {
-  border-color: #eee; // Gray
+  border-color: #eee; /* Gray */
 }
 </style>
 ```
