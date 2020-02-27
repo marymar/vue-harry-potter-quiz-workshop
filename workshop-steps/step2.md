@@ -195,7 +195,6 @@ In the App.vue extend the quiz element with a props attribute called â€œmoviesâ€
 
 <script>
   export default {
-    // ...
     data() {
       return {
         movies: [
@@ -211,7 +210,6 @@ In the App.vue extend the quiz element with a props attribute called â€œmoviesâ€
       };
     }
   }
-  // ...
 ```
 
 If you provide a prop to a component, the receiving component has to define that property on the other side before you can use it. This is done by introducing the prop in the `props: {}` section inside Quiz.vue:
