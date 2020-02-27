@@ -127,6 +127,15 @@ computed: {
 },
 ```
 
+At last, let's add the title via text interpolation (Mustache syntax) into our template inside **Quiz.vue**.
+
+You can read more about Vue Text Interpolation here:
+- https://vuejs.org/v2/guide/syntax.html#Interpolations
+
+```html
+  <h1 class="quiz-heading">{{ title }}</h1>
+```
+
 ---
 
 [Prev: Step #2 - Create the first own Vue component "Quiz.vue"](step2.md)
