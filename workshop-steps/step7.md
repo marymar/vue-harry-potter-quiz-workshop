@@ -1,31 +1,31 @@
 # Step 7: Introducing usage of store and saving data in local storage
 
-Maybe you've realized that every time you're making changes in your code or you do a refresh in the preview, the state has gone away and you have to start the quiz from the beginning.  
+Maybe you've realized that every time you're making changes in your code or you do a refresh in the preview, the state has gone away and you have to start the quiz from the beginning.
 
-Currently, we're not storing our data, so we can’t load information about the current question for the user to answer, or what answers the user has given so far.  
+Currently, we're not storing our data, so we can’t load information about the current question for the user to answer, or what answers the user has given so far.
 
-To change this and improve saving our data, we're going to use the local Storage and state management in Vue.  
-This will help us to mutate (change) data and state in our app.  
+To change this and improve saving our data, we're going to use the local Storage and state management in Vue.
+This will help us to mutate (change) data and state in our app.
 
-State management becomes really useful for larger apps.  
-Apps can often grow in complexity, due to multiple pieces of state scattered across many components and interactions between them. State management serves as a centralized store for all the components in an app, with rules ensuring that the state can only be mutated (changed) in a predictable fashion. The convention is that components are never allowed to directly mutate (change) state that belongs to the store, but should instead dispatch events that notify the store to perform actions.  
+State management becomes really useful for larger apps.
+Apps can often grow in complexity, due to multiple pieces of state scattered across many components and interactions between them. State management serves as a centralized store for all the components in an app, with rules ensuring that the state can only be mutated (changed) in a predictable fashion. The convention is that components are never allowed to directly mutate (change) state that belongs to the store, but should instead dispatch events that notify the store to perform actions.
 
-We're going to use a lightweight implementation of state management in Vue.js, which is done with observables.  
+We're going to use a lightweight implementation of state management in Vue.js, which is done with observables.
 This is a function that returns a reactive instance of a given object.
 
-You can read more about Vue Observables here:  
+You can read more about Vue Observables here:
 - https://vuejs.org/v2/api/#Vue-observable
 
 The following is the data we want to handle via the store:
 - questions
 - currentQuestion
-  - img
+  - image
   - correct
   - answers
 - userAnswers
 - ...
 
-First, we're defining the store with Vue observables which expects an object with all properties we want to observe.  
+First, we're defining the store with Vue observables which expects an object with all properties we want to observe.
 
 Create a directory "store" and inside it, a file called "index.js" with the following content:
 
@@ -48,12 +48,12 @@ export const store = Vue.observable({
 });
 ```
 
-For changing our values in the store we have to use a defined way for it, and do it over a set of methods, which are defined within the mutation property.  
+For changing our values in the store we have to use a defined way for it, and do it over a set of methods, which are defined within the mutation property.
 
-Therefore, we have to define further each property inside the store as a set method if we want to mutate those values.  
+Therefore, we have to define further each property inside the store as a set method if we want to mutate those values.
 We'll also store the data in the `localStorage` of the browser.
 
-You can read more about window local storage here:  
+You can read more about window local storage here:
 - https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Local_storage
 
 ```javascript
@@ -90,7 +90,7 @@ export const mutations = {
 };
 ```
 
-As we're using a store now, it makes sense to move the fetching of data away from the Quiz component to the store.  
+As we're using a store now, it makes sense to move the fetching of data away from the Quiz component to the store.
 
 Fetching the data is an action, and it's defined within the action object of the store. Also in this action, we're handling the loading of stored data from the localStorage.
 
@@ -116,15 +116,15 @@ export const actions = {
 };
 ```
 
-Now that we defined our store, we need to use it from the components side.  
+Now that we defined our store, we need to use it from the components side.
 
-First, replace the contents of the mounted function in the **Quiz.vue** with the action `fetchData()` from the store.  
+First, replace the contents of the mounted function in the **Quiz.vue** with the action `fetchData()` from the store.
 
-Secondly, extract the initialization of the quiz stage depending on which one is active.  
+Secondly, extract the initialization of the quiz stage depending on which one is active.
 
 Although we're going to store data, we have to do some additional work for the initialization at the beginning, and maybe if we want to play the quiz again from the beginning.
 
-So write two additional methods: `initWelcomeStage()` and `initQuizStage()`.  
+So write two additional methods: `initWelcomeStage()` and `initQuizStage()`.
 Later on we'll need a third one for the score stage.
 
 ```html
@@ -144,10 +144,10 @@ async mounted() {
 </script>
 ```
 
-After this, we want to use all data from the store.  
-Therefore, we have to add the computed properties for `img()`, `title()` and `answers()`.
+After this, we want to use all data from the store.
+Therefore, we have to add the computed properties for `image()`, `title()` and `answers()`.
 
-You can read more about Vue computed properties here:  
+You can read more about Vue computed properties here:
 - https://vuejs.org/v2/guide/computed.html#Basic-Example
 
 ```javascript
@@ -155,7 +155,7 @@ You can read more about Vue computed properties here:
 import { store, actions } from "../store";
 // ...
 computed: {
-    img() {
+    image() {
       return store.stage === "quiz"
         ? store.currentQuestion.img
         : "https://media0.giphy.com/media/Bh3YfliwBZNwk/giphy.gif?cid=3640f6095c852266776c6f746fb2fc67";
@@ -190,7 +190,7 @@ computed: {
 <ul class="quiz-choices" v-else-if="stage === 'quiz'">...</ul>
 ```
 
-If the user makes a choice, we have to change some values in the store to continue with the next question, and to save all answers the user gave us until this point.  
+If the user makes a choice, we have to change some values in the store to continue with the next question, and to save all answers the user gave us until this point.
 
 We'll need to do this in a defined way and use mutation methods from the store.
 
@@ -230,7 +230,7 @@ import { store, actions, mutations } from "../store";
     //...
 ```
 
-**Hint:**  
+**Hint:**
 In CodeSandbox we're running into a problem when using `localStorage`. This is because of the iframes needed by CodeSandbox. To get our QuizApp running again, we need to open the view in a new browser window.
 
 ---
