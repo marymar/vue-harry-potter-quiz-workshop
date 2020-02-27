@@ -8,8 +8,7 @@ And to display the next question we'll need to increase the `currentQuestionNumb
 
 Because Vue recognizes changes in the component's data, these additions will update all dependencies, and the values in the component will be updated by showing the next question to the user.
 
-Additionally, we should store the given answer in an array, which we'll use to calculate the user's score at the end of the quiz.
-To do this, add another variable inside data, which will hold all given answers.
+Additionally, we should store the given answer in an array, which we'll use to calculate the user's score at the end of the quiz. To do this, add another variable inside data, which will hold all given answers.
 
 ```javascript
 data() {
@@ -29,6 +28,11 @@ handleAnswer(answerNo) {
     setTimeout(() => {
         this.nextQuestion();
     }, 1000);
+
+    /* 
+      Learn about setTimeout functions here:
+      - https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout
+    */
 },
 nextQuestion() {
     this.currentUserAnswer = null;
