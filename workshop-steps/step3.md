@@ -33,7 +33,7 @@ To learn more about data primitives, like string, numbers and arrays, which are 
 - https://www.theavocoder.com/complete-javascript/2018/12/18/primitive-data-types
 
 To load the questions we're going to provide the Quiz component with the `questions-url` props from where the questions can be loaded. We'll use this to fetch the data from there.  
-This fetching magic will happen with the mounted() method of our Quiz component. The mounted() method is a lifecycle hook, which is called after the instance has been mounted.
+The fetching magic will happen with the mounted() method of our Quiz component. The mounted() method is a lifecycle hook, which is called after the instance has been mounted.
 
 You can read more about Vue Mounted here:  
 - https://vuejs.org/v2/api/#mounted
@@ -70,7 +70,7 @@ async mounted() {
 },
 ```
 
-Now we are able to use this loaded questions and to enhance the `initQuizStage` and to use this data and provide the first question to the user.
+Now we're able to use these loaded questions to enhance the `initQuizStage` and use this data to provide the first question to the user.
 
 Will start to replace the image we use so far in the Quiz component to be changed dynamically in terms of the question we are showing.
 
