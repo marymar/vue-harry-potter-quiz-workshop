@@ -37,6 +37,20 @@ handleAnswer(answerNo) {
 nextQuestion() {
     this.currentUserAnswer = null;
     ++this.currentQuestionNumber;
+
+    /*
+    FYI: We're increating a variable by one with an unary operator.
+    The above code is equal to this:
+    
+    this.currentQuestionNumber = this.currentQuestionNumber + 1;
+
+    or
+
+    this.currentQuestionNumber += 1;
+
+    Learn about expressions and operators here:
+    - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators
+    */
 }
 ```
 
