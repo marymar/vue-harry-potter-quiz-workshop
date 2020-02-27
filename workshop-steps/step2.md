@@ -286,7 +286,10 @@ You can read more about Vue Computed Properties here:
           //   'welcome'
           // } else {
           //   'quiz'
-          // };
+          // }
+          //
+          // Learn about ternary operators here:
+          // - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
       }
     },
     methods: {
