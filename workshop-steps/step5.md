@@ -9,7 +9,8 @@ Define two more methods that evaluate the choice and handle the answer.
 <button
   @click="handleAnswer(answerNumber)"
   class="quiz-button"
-  :class="{ 'correct': isCorrectAnswer(answerNumber) && currentUserAnswer === answerNumber,
+  :class="{ 
+    'correct': isCorrectAnswer(answerNumber) && currentUserAnswer === answerNumber,
     'wrong': !isCorrectAnswer(answerNumber) && currentUserAnswer === answerNumber
   }">{{ movies[answerNumber - 1] }}
 </button>
