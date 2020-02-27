@@ -101,7 +101,7 @@ You can read more about Vue Computed Caching here:
   // ...
 ```
 
-We are going to do something similar for the title. Because with the start of the script we want to change the title from “How Well Do You Know the Harry Potter Movies?” to “Which movie is this?”
+We're going to do something similar for the title, because with the start of the script we want to change the title from “How Well Do You Know the Harry Potter Movies?” to “Which movie is this?”.
 
 ```javascript
 // Quiz.vue
@@ -110,6 +110,19 @@ computed: {
       return this.currentQuestionNumber
         ? "Which movie is this?"
         : "How Well Do You Know the Harry Potter Movies?";
+
+      /*
+        FYI: We're using a ternary operator in JS.
+        The above code is equal to this:
+        if (this.currentQuestionNumber) { 
+          "Which movie is this?"
+        } else {
+          "How Well Do You Know the Harry Potter Movies?"
+        }
+        
+        Learn about ternary operators here:
+        - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+      */
     }
 },
 ```
