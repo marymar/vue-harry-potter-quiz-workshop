@@ -1,6 +1,6 @@
 # Step 8: Create the score view
 
-When all questions are answered and the user arrives to the end of the quiz, we want to show them their score.
+When all questions are answered and the user arrives at the end of the quiz, we want to show them their score.
 
 We have already some text prepared, which is displayed to the user with their score achieved.
 
@@ -44,8 +44,10 @@ resultsInfo: {
 };
 ```
 
-From the `quiz stage` we have to switch to the `result stage`. We will define a method for it.
-Because when a refresh by the user is done, and the application needs to initialize again, we have to take this into account, when the component is mounted.
+From the `quiz stage` we have to switch to the `result stage`.  
+To do this, we'll define a method for it.  
+
+We have to consider when a refresh by the user is done and the application needs to initialize again when the component is mounted.
 
 ```javascript
   // ...
@@ -86,7 +88,7 @@ Because when a refresh by the user is done, and the application needs to initial
   // ...
 ```
 
-When switcheing from one to next question, we additionally have to check now, if we arrived at the quiz end. If so, we have to change the stage.
+When switching to the next question, we additionally have to check if the user arrived at the end of the quiz. If so, we have to change the stage.
 
 ```javascript
 // ...
