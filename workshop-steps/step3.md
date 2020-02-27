@@ -87,7 +87,10 @@ You can read more about Vue Computed Caching here:
     <div>
     <img :src="image" alt>
     ...
+```
 
+```javascript
+/* Quiz.vue */
 <script>
   export default {
     // ...
