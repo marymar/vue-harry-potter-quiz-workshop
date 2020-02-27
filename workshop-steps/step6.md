@@ -1,9 +1,14 @@
 # Step 6: Proceed with next question
 
-After evaluating the answer, we will show the result to the user for a short time but then to continue with the next question.
-So after evaluation wait a second and then just increase the `currentQuestionNumber` by one. Because Vue recognizes changes in component's data, it will update all dependencies and the values in the component are going to be updated, which in our case means that the next question will be shown to the user.
+After evaluating the answer we'll show the result to the user for a short time and then follow up with the next question.
 
-Additionally we should store the given answer in an array, which we will use to calculate the user's score at the end of the quiz.
+To wait for a second after the evaluation, we'll need to create a `setTimeout` function indicating the amount of waiting in milliseconds. E.g. 1 second = 1000 milliseconds.
+
+And to display the next question we'll need to increase the `currentQuestionNumber` by one.  
+
+Because Vue recognizes changes in the component's data, these additions will update all dependencies, and the values in the component will be updated by showing the next question to the user.
+
+Additionally, we should store the given answer in an array, which we'll use to calculate the user's score at the end of the quiz.
 
 Also add another variable inside data, which holds all given answers.
 
