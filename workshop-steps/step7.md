@@ -50,8 +50,8 @@ export const store = Vue.observable({
 
 For changing our values in the store we have to use a defined way for it, and do it over a set of methods, which are defined within the mutation property.  
 
-Therefore, we have to define further each property inside the store as a set method if we want to mutate those values.
-We will also store the data in the `localStorage` of the browser.
+Therefore, we have to define further each property inside the store as a set method if we want to mutate those values.  
+We'll also store the data in the `localStorage` of the browser.
 
 ```javascript
 // store/index.js
