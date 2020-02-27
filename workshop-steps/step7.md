@@ -1,14 +1,20 @@
 # Step 7: Introducing usage of store and saving data in local storage
 
-Maybe you have realized that every time you are making changes in your code or you do a refresh in the preview, the state is gone away and you have to start the quiz from the beginning again. Currently we are not storing our data, so that we can’t load information, e.g. about the current question for the user to answer, or what answers the user has given so far.
+Maybe you have realized that every time you are making changes in your code or you do a refresh in the preview, the state has gone away and you have to start the quiz from the beginning.  
 
-To change this and improve and save data, we are going to use the local Storage and a state management in Vue. It helps us to mutate data and state in our app.
+Currently we're not storing our data, so we can’t load information. E.g. About the current question for the user to answer, or what answers the user has given so far.  
 
-A state management becomes really useful for larger apps. Apps can often grow in complexity, due to multiple pieces of state scattered across many components and the interactions between them. A state management serves a centralized store for all the components in an app, with rules ensuring that the state can only be mutated in a predictable fashion. The convention is, that components are never allowed to directly mutate state that belongs to the store, but should instead dispatch events that notify the store to perform actions.
+To change this and improve saving the data, we're going to use the local Storage and a state management in Vue. It'll help us to mutate data and state in our app.  
 
-We are going to use a lightweight implementation of state management in Vue.js which is realized with Observables. This is a function that returns a reactive instance of a given object.
+A state management becomes really useful for larger apps. Apps can often grow in complexity, due to multiple pieces of state scattered across many components and interactions between them. A state management serves as a centralized store for all the components in an app, with rules ensuring that the state can only be mutated in a predictable fashion. The convention is that components are never allowed to directly mutate (change) state that belongs to the store, but should instead dispatch events that notify the store to perform actions.  
 
-Some of the following data we want to handle via the store:
+We're going to use a lightweight implementation of state management in Vue.js which is done with observables.  
+This is a function that returns a reactive instance of a given object.
+
+You can read more about Vue Observables here:  
+- https://vuejs.org/v2/api/#Vue-observable
+
+The following is the data we want to handle via the store:
 - questions
 - currentQuestion
   - img
@@ -17,7 +23,9 @@ Some of the following data we want to handle via the store:
 - userAnswers
 - ...
 
-First we are defining the store with Vue observables which expects an object with all properties we want to observe. Create a directory "store" and inside it a file called "index.js" with the following content:
+First, we're defining the store with Vue observables which expects an object with all properties we want to observe.  
+
+Create a directory "store" and inside it a file called "index.js" with the following content:
 
 ```javascript
 // store/index.js
