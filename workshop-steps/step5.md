@@ -1,26 +1,26 @@
 # Step 5: Evaluate the option which was clicked
 
-Now that we offered the user all possible quiz answers, we need to add a click event listener to the option buttons and evaluate, if the right choice was made by the user.
+Now that we offered the user all possible quiz answers, we need to add a click event listener to the option buttons and evaluate if the correct choice was made by the user.
 
-Define two more methods which evaluate the choice and handle the answer.
+Define two more methods that evaluate the choice and handle the answer.
 
 ```html
 <!-- Quiz.vue --->
 <button
-          @click="handleAnswer(answerNumber)"
-          class="quiz-button"
-          :class="{ 'correct': isCorrectAnswer(answerNumber) && currentUserAnswer === answerNumber,
-            'wrong': !isCorrectAnswer(answerNumber) && currentUserAnswer === answerNumber
-          }">{{ movies[answerNumber - 1] }}
+  @click="handleAnswer(answerNumber)"
+  class="quiz-button"
+  :class="{ 'correct': isCorrectAnswer(answerNumber) && currentUserAnswer === answerNumber,
+    'wrong': !isCorrectAnswer(answerNumber) && currentUserAnswer === answerNumber
+  }">{{ movies[answerNumber - 1] }}
 </button>
 ```
 
 ```javascript
 // Quiz.vue
 data() {
-    return {
-      // ...
-      currentUserAnswer: null
+  return {
+    // ...
+    currentUserAnswer: null
 }
 // ...
 methods: {
@@ -38,8 +38,8 @@ methods: {
 }
 ```
 
-Don't forget to enhance the button style, for the wrong and correct answer.
-Otherwise you wouldn't see any changes in the browser.
+Don't forget to enhance the button style, for the incorrect and correct answer.  
+Otherwise you won't see any changes in the browser.
 
 ```css
 .quiz-button.wrong {
