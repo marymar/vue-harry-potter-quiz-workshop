@@ -23,9 +23,9 @@ answers() {
             ? this.questions[this.currentQuestionNumber - 1].answers
             : [];
 
-      /*
-            Learn about ternary operators here:
-            - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+      /* 
+        Learn about ternary operators here:
+        - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
       */
 }
 ```
