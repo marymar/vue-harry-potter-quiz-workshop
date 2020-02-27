@@ -74,9 +74,9 @@ Now we're able to use these loaded questions to enhance the `initQuizStage` and 
 
 We'll start replacing the image we used so far in the Quiz component to be changed dynamically in terms of the question we're showing. To do so some steps are needed.  
 
-First we need to know which question is in which order. We'll store the information within the `currentQuestionNumber` instance property. Then, we have to provide the right image, which we can do by using a computed property.
+First, we need to know which question is in which order. We'll store the information within the `currentQuestionNumber` instance property. Then, we have to provide the right image, which we can do by using a computed property.
 
-A computed property in Vue is an instance property as well, but the main advantage of it's that it can be built by different properties together. Vue will watch for changes inside dependent properties, and if they change, the computed property will be evaluated again. On the other hand, it'll be kept cached and only the cached value is provided.
+A computed property in Vue is an instance property as well, but the main advantage it's that it can be built by different properties together. Vue will watch for changes inside dependent properties, and if they change, the computed property will be evaluated again. On the other hand, it'll be kept cached and only the cached value is provided.
 
 ```html
 <!-- Quiz.vue -->
