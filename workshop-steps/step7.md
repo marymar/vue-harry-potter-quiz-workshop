@@ -53,6 +53,9 @@ For changing our values in the store we have to use a defined way for it, and do
 Therefore, we have to define further each property inside the store as a set method if we want to mutate those values.  
 We'll also store the data in the `localStorage` of the browser.
 
+You can read more about window local storage here:  
+- https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Local_storage
+
 ```javascript
 // store/index.js
 // ...
