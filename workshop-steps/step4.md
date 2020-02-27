@@ -9,7 +9,7 @@ We also need to change the data used to iterate and employ the data of the curre
 
 ```html
 <!--Quiz.vue -->
-<ul class="quiz-choices" v-if="stage===’quiz’">
+<ul class="quiz-choices" v-if="stage==='quiz'">
       <li v-for="answerNumber in answers" :key="answerNumber">
             <button class="quiz-button">{{ movies[answerNumber] }}</button>
       </li>
