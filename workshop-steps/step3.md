@@ -70,6 +70,9 @@ async mounted() {
 },
 ```
 
+You can read more about Vue Async Components here:  
+- https://vuejs.org/v2/guide/components-dynamic-async.html#Async-Components
+
 Now we're able to use these loaded questions to enhance the `initQuizStage` and use this data to provide the first question to the user.
 
 We'll start replacing the image we used so far in the Quiz component to be changed dynamically in terms of the question we're showing. To do so some steps are needed.  
