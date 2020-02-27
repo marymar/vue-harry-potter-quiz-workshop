@@ -14,7 +14,7 @@ The file will be empty so far.
 Normally Vue components contain:  
 - A template
 - A script
-- Style section
+- A style section
 
 The smallest Vue component looks like this:
 
@@ -36,8 +36,8 @@ This doesn’t provide any meaningful output, but let's put some text within the
 </template>
 ```
 
-Now, we are including a brand new component in the App.vue.  
-Just remove the `<HelloWorld />` component and use the Quiz component instead.
+Now, we'll include a brand new component in the App.vue.  
+Remove the `<HelloWorld />` component, and add the Quiz component instead.
 
 To use our Quiz component some steps are needed. First we have to import the component within the script section.
 
@@ -45,7 +45,7 @@ To use our Quiz component some steps are needed. First we have to import the com
 import Quiz from "./components/Quiz.vue";
 ```
 
-After that, the Quiz component has to be registered within the App.vue, which is done by adding the imported Quiz to the App components options.
+After that, the Quiz component has to be registered within the App.vue, which is done by adding the imported Quiz to the App components options:
 
 ```javascript
 components: {
@@ -54,7 +54,7 @@ components: {
 ```
 
 This above is the easiest way to do that. It will map your component Quiz to the component element `<Quiz />`.  
-But is also possible to register the component with more settings. E.g. With a custom name for the component:
+But is also possible to register the component with more settings. E.g. With a custom name or key property for the component:
 
 ```javascript
 components: {
@@ -62,7 +62,7 @@ components: {
 }
 ```
 
-The last thing to do is to use the component element `<quiz />` in the template.
+The last thing to do is to add the component element `<quiz />` in the template.
 
 ```html
 <template>
@@ -72,23 +72,23 @@ The last thing to do is to use the component element `<quiz />` in the template.
 </template>
 ```
 
-Before the Quiz starts, we need a welcome view displayed to the user.
-In the Quiz.vue template section we'll remove the previous content, and place a picture, a title and a link, which finally will start the quiz.
+Before the Quiz starts, we need a welcome view displayed to the user.  
+In the **Quiz.vue** template section we'll remove the previous content, and place a picture, a title and a link via HTML, which finally will start the quiz.
 
 ```html
 <div>
     <img
       src="https://media0.giphy.com/media/Bh3YfliwBZNwk/giphy.gif?cid=3640f6095c852266776c6f746fb2fc67"
-      alt
+      alt="A castle at the top of a mountain in a gray day with thunders."
     >
     <h1 class="quiz-heading">How Well Do You Know the Harry Potter Movies?</h1>
     <button class="quiz-button">Start Quiz</button>
 </div>
 ```
 
-For more styling you can use the style section and write your css.
+For more styling you can use the style section and write your CSS.
 
-Within the App.vue we set some general settings, like having a dark background and defining the main text color:
+Within the App.vue we already set some general CSS styling, like having a dark background and defining the main text color:
 
 ```css
 /* App.vue */
@@ -101,8 +101,8 @@ html {
 }
 body {
   height: 100%;
-  background: #020815;
-  color: #eee;
+  background: #020815; // Black
+  color: #eee; // Gray
 }
 
 #app {
@@ -115,7 +115,7 @@ body {
 </style>
 ```
 
-For the Quiz.vue we can make some simple stylings like the following.
+For the **Quiz.vue** we can make some simple stylings like the following.
 
 ```css
 /* Quiz.vue */
@@ -128,7 +128,7 @@ For the Quiz.vue we can make some simple stylings like the following.
 }
 
 .quiz-button {
-  color: #eee;
+  color: #eee; // Gray
   text-decoration: none;
   cursor: pointer;
   display: inline-block;
@@ -138,35 +138,50 @@ For the Quiz.vue we can make some simple stylings like the following.
   transition: border-color 0.5s;
 }
 .quiz-button:hover {
-  border-color: #eee;
+  border-color: #eee; // Gray
 }
 </style>
 ```
 
-When you click on the button "Start Quiz" to start the quiz, nothing happens. In order to make something happen when the link is clicked, we need to bind an action to the button. This we can achieved by adding the event modifier `@click` to the button inside Quiz.vue's `<template>` section.
+When you click on the button "Start Quiz" to start the quiz, nothing happens.  
+In order to make something happen when the link is clicked, we need to bind an action to the button.  
+This can be achieved by adding the shorthand event modifier `@click` to the button inside **Quiz.vue's** `<template>` section.
 
 ```javascript
 <button class="quiz-button" @click="initQuizStage">Start Quiz</button>
 ```
 
-The event modifier contains `initQuizStage` as a value. Here Vue expects a method, which is called when a user clicks on the button. Therefore we are going to define a method with the same name in the script section of our component.
+You can read more about Vue Modifiers here:  
+- https://vuejs.org/v2/guide/events.html#Event-Modifiers
+
+And read about Vue Shorthands here:
+- https://vuejs.org/v2/guide/syntax.html#Shorthands
+
+This shorthand event modifier contains `initQuizStage` as a value, which is expected to be a method for Vue.     
+Such method will be called when a user clicks the button.  
+Therefore we are going to define a method with the same name in the script's section of our component:
 
 ```javascript
 // Quiz.js
 <script>
-export default {
-  methods: {
-    initQuizStage() {
-      console.log("Start the quiz....");
+  export default {
+    methods: {
+      initQuizStage() {
+        console.log("Start the quiz....");
+      }
     }
-  }
-};
+  };
 </script>
 ```
 
-It only prints “Start the quiz…” to the console. Before moving on and implementing the `initQuizStage` we need more data. We need the movie titles of all Harry Potter movies. But also the data for quiz questions.
+This method only prints “Start the quiz…” to the console. Before moving on and implementing the `initQuizStage` we need more data. We need the movie titles of all Harry Potter movies. But also the data for quiz questions.
 
-Next we are going to provide all movie titles to our Quiz component. Providing data to child components can be done with so-called props. Props are custom attributes you can register on a component to be able to pass data to them from a parent component. A value can be passed to a prop attribute, which becomes a property on that component instance.
+Next, we're going to provide all movie titles to our Quiz component.  
+Providing data to child components can be done with so-called props in Vue.  
+Props are custom attributes you can register on a component to be able to pass data to them from a parent component. A value can be passed to a prop attribute, which becomes a property on that component instance.
+
+You can read more about Vue Props here:  
+- https://vuejs.org/v2/guide/components.html#Passing-Data-to-Child-Components-with-Props
 
 In the App.vue extend the quiz element with a props attribute called “movies” and provide it with movies data, which you get from the `data()` method. With the colon in front of the prop name, you are telling Vue that this value inside the brackets is not just a string but a variable.
 
@@ -179,23 +194,24 @@ In the App.vue extend the quiz element with a props attribute called “movies�
 </template>
 
 <script>
-export default {
- // ...
-data() {
-    return {
-      movies: [
-        "Harry Potter and the Philosopher's Stone",
-        "Harry Potter and the Chamber of Secrets",
-        "Harry Potter and the Prisoner of Azkaban",
-        "Harry Potter and the Goblet of Fire",
-        "Harry Potter and the Order of the Phoenix",
-        "Harry Potter and the Half-Blood Prince",
-        "Harry Potter and the Deathly Hallows - Part 1",
-        "Harry Potter and the Deathly Hallows - Part 2"
-      ]
-    };
+  export default {
+    // ...
+    data() {
+      return {
+        movies: [
+          "Harry Potter and the Philosopher's Stone",
+          "Harry Potter and the Chamber of Secrets",
+          "Harry Potter and the Prisoner of Azkaban",
+          "Harry Potter and the Goblet of Fire",
+          "Harry Potter and the Order of the Phoenix",
+          "Harry Potter and the Half-Blood Prince",
+          "Harry Potter and the Deathly Hallows - Part 1",
+          "Harry Potter and the Deathly Hallows - Part 2",
+        ]
+      };
+    }
   }
-}
+  // ...
 ```
 
 If you provide a prop to a component, the receiving component has to define that property on the other side before you can use it. This is done by introducing the prop in the `props: {}` section inside Quiz.vue:
