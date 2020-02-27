@@ -39,8 +39,10 @@ nextQuestion() {
     ++this.currentQuestionNumber;
 
     /*
-    FYI: We're increating a variable by one with an unary operator.
-    The above code is equal to this:
+    FYI: We're increating a variable by one with an unary operator:
+    ++this.currentQuestionNumber;
+
+    The above line of code is equal to this:
     
     this.currentQuestionNumber = this.currentQuestionNumber + 1;
 
