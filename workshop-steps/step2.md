@@ -240,10 +240,11 @@ To see if it works, we can use a simple list and iterate over the entries of mov
 ```
 
 With the `v-for` directive we can tell vue to iterate over the values in movies and to repeat the `<li>` element with each value provided during each iteration.  
-The `{{ movie }}` is the mustache syntax. The mustache tag will be replaced with movie names, which are saved in the property movies (which we defined earlier). It will also be updated whenever the component's movies property changes.
 
 You can read more about Vue Directives here:  
 - https://vuejs.org/v2/guide/syntax.html#Directives
+
+The `{{ movie }}` is the mustache syntax. The mustache tag will be replaced with movie names, which are saved in the property movies (which we defined earlier). It will also be updated whenever the component's movies property changes.
 
 Let’s ensure that the part with the printed movies list is only shown when `initQuizStage` is clicked.  
 This can be achieved by using the `stage` computed property and with the `v-if` directive in the template.  
