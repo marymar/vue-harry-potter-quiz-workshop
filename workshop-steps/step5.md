@@ -12,7 +12,8 @@ Define two more methods that evaluate the choice and handle the answer.
   :class="{ 
     'correct': isCorrectAnswer(answerNumber) && currentUserAnswer === answerNumber,
     'wrong': !isCorrectAnswer(answerNumber) && currentUserAnswer === answerNumber
-  }">{{ movies[answerNumber - 1] }}
+  }">
+  {{ movies[answerNumber - 1] }}
 </button>
 ```
 
