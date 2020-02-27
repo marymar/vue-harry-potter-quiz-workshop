@@ -116,7 +116,7 @@ export const actions = {
 };
 ```
 
-Now, that we defined our store we need to use it from the components side.  
+Now that we defined our store, we need to use it from the components side.  
 
 First, replace the contents of the mounted function in the **Quiz.vue** with the action `fetchData()` from the store.  
 
@@ -125,7 +125,7 @@ Secondly, extract the initialization of the quiz stage depending on which one is
 Although we're going to store data, we have to do some additional work for the initialization at the beginning, and maybe if we want to play the quiz again from the beginning.
 
 So write two additional methods: `initWelcomeStage()` and `initQuizStage()`.  
-Later on we will need a third one for the score stage.
+Later on we'll need a third one for the score stage.
 
 ```html
 <!-- Quiz.vue -->
@@ -146,6 +146,9 @@ async mounted() {
 
 After this, we want to use all data from the store.  
 Therefore, we have to add the computed properties for `img()`, `title()` and `answers()`.
+
+You can read more about Vue computed properties here:  
+- https://vuejs.org/v2/guide/computed.html#Basic-Example
 
 ```javascript
 // Quiz.vue
@@ -168,7 +171,7 @@ computed: {
   },
 ```
 
-Within the template where we check, if the welcome stage has to be shown or the quiz actually started and we want to show the question instead, we are using the `stage` for evaluation. But the `stage` is now part of the store. And before looking up `stage` in the store we would have to check if the store is initialized. To avoid this, we are introducing another computed property `stage`. This helps not being forced to check if the store can be used so far.
+Within the template where we check if the welcome stage has to be shown or the quiz started and we want to show the question instead, we are using the `stage` for evaluation. But the `stage` is now part of the store. And before looking up `stage` in the store we would have to check if the store is initialized. To avoid this, we are introducing another computed property `stage`. This helps not being forced to check if the store can be used so far.
 
 ```javascript
 // Quiz.vue
