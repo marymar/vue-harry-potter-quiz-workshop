@@ -141,7 +141,7 @@ Add the detailed result text in an extra element and a button to restart the qui
 
 ```html
 <p v-if="this.stage === 'result'" v-html="this.result.text"/>
-<button class="wellcome-button" v-if="stage === 'result'" @click="initQuizStage">Start again</button>
+<button class="wellcome-button" v-if="stage === 'result'" @click="initWelcomeStage">Start again</button>
 ```
 
 Maybe you also don't want to keep the last quiz question's image.  
