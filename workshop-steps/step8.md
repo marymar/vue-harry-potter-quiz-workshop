@@ -143,7 +143,7 @@ Add the detailed result text in an extra element, only shown if the user is on t
 <p v-if="this.stage === 'result'" v-html="this.result.text"/>
 ```
 
-Maybe you also don't want to keep the last quiz question image.  
+Maybe you also don't want to keep the last quiz question's image.  
 If not, enhance the `image()` computed property and check if the stage is result.
 
 ```javascript
