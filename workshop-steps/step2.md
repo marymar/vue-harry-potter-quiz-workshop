@@ -251,7 +251,7 @@ You can read more about Vue Text Interpolation here:
 
 Let’s ensure that the part with the printed movies list is only shown when `initQuizStage` is clicked.  
 This can be achieved by using the `stage` computed property and with the `v-if` directive in the template.  
-The `v-if` directive validates the expression of its content. When it is true, the component is rendered and shown, if not, it is not rendered.
+The `v-if` directive validates the expression of its content. When it is true, the component is rendered and shown, if false, it is not rendered.
 
 You can read more about Vue Computed Properties here:  
 - https://vuejs.org/v2/guide/computed.html#Computed-Properties
@@ -279,6 +279,14 @@ You can read more about Vue Computed Properties here:
       // ....
       stage() {
           return this.currentQuestionNumber === 0 ? 'welcome' : 'quiz';
+
+          // FYI: We're using a ternary operator in JS.
+          // The above code is equal to this:
+          // if (this.currentQuestionNumber === 0) { 
+          //   'welcome'
+          // } else {
+          //   'quiz'
+          // };
       }
     },
     methods: {
@@ -289,7 +297,7 @@ You can read more about Vue Computed Properties here:
 </script>
 ```
 
-Also let ensure that the “Start Quiz” button disappears when the Quiz is started.  
+Also let's ensure that the “Start Quiz” button disappears when the Quiz is started.  
 We can again use the `stage` property for it.
 
 ```html
