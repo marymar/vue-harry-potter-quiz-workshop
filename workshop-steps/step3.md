@@ -78,6 +78,9 @@ First, we need to know which question is in which order. We'll store the informa
 
 A computed property in Vue is an instance property as well, but the main advantage it's that it can be built by different properties together. Vue will watch for changes inside dependent properties, and if they change, the computed property will be evaluated again. On the other hand, it'll be kept cached and only the cached value is provided.
 
+You can read more about Vue Computed Caching here:  
+- https://vuejs.org/v2/guide/computed.html#Computed-Caching-vs-Methods
+
 ```html
 <!-- Quiz.vue -->
 <template>
@@ -85,17 +88,18 @@ A computed property in Vue is an instance property as well, but the main advanta
     <img :src="image" alt>
     ...
 
+```javascript
 <script>
-export default {
-// ...
-computed: {
-    image() {
-      return this.currentQuestionNumber
-        ? this.questions[this.currentQuestionNumber].img
-        : "https://media0.giphy.com/media/Bh3YfliwBZNwk/giphy.gif?cid=3640f6095c852266776c6f746fb2fc67";
-    }
-  },
-// ...
+  export default {
+    // ...
+    computed: {
+      image() {
+        return this.currentQuestionNumber
+          ? this.questions[this.currentQuestionNumber].img
+          : "https://media0.giphy.com/media/Bh3YfliwBZNwk/giphy.gif?cid=3640f6095c852266776c6f746fb2fc67";
+      }
+    },
+  // ...
 ```
 
 We are going to do something similar for the title. Because with the start of the script we want to change the title from “How Well Do You Know the Harry Potter Movies?” to “Which movie is this?”
