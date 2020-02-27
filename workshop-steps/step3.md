@@ -33,7 +33,7 @@ To learn more about data primitives, like string, numbers and arrays, which are 
 - https://www.theavocoder.com/complete-javascript/2018/12/18/primitive-data-types
 
 To load the questions we're going to provide the Quiz component with the `questions-url` props from where the questions can be loaded. We'll use this to fetch the data from there.  
-The fetching magic will happen with the mounted() method of our Quiz component. The mounted() method is a lifecycle hook, which is called after the instance has been mounted.
+The fetching magic will happen with the `mounted()` method of our Quiz component. The `mounted()` method is a lifecycle hook, which is called after the instance has been mounted.
 
 You can read more about Vue Mounted here:  
 - https://vuejs.org/v2/api/#mounted
@@ -72,9 +72,13 @@ async mounted() {
 
 Now we're able to use these loaded questions to enhance the `initQuizStage` and use this data to provide the first question to the user.
 
-Will start to replace the image we use so far in the Quiz component to be changed dynamically in terms of the question we are showing.
+We'll start replacing the image we used so far in the Quiz component to be changed dynamically in terms of the question we're showing.
 
-To do so some steps are needed. First we need to know which question is in order. We will store the information within the `currentQuestionNumber` instance property. Than we have to provide the right image which we can do by using a computed property. A computed property in Vue is a instance property as well, but the main advantage of it, is that it can be build by different properties together. Vue will watch for changes in dependent properties, and if they changes the computed property will be evaluated again. On the other hand it will be kept cached and only the cached value is provided.
+To do so some steps are needed.  
+First we need to know which question is in which order. We'll store the information within the `currentQuestionNumber` instance property.  
+Then, we have to provide the right image, which we can do by using a computed property.
+
+A computed property in Vue is an instance property as well, but the main advantage of it's that it can be built by different properties together. Vue will watch for changes inside dependent properties, and if they change, the computed property will be evaluated again. On the other hand, it'll be kept cached and only the cached value is provided.
 
 ```html
 <!-- Quiz.vue -->
