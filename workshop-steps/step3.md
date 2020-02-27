@@ -88,7 +88,6 @@ You can read more about Vue Computed Caching here:
     <img :src="image" alt>
     ...
 
-```javascript
 <script>
   export default {
     // ...
