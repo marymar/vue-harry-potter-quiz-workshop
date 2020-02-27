@@ -107,7 +107,7 @@ handleAnswer(answerNo) {
 }
 ```
 
-In the Quiz.vue we have to define the new property.
+In the **Quiz.vue** we have to define the new property.
 
 ```javascript
 
@@ -121,7 +121,7 @@ props: {
 },
 ```
 
-First we are going to calculate the correct answers the user gave.
+First, we're going to calculate the correct answers the user gave.
 
 ```javascript
 // Quiz.vue
@@ -136,14 +136,15 @@ correctAnswers() {
 },
 ```
 
-Now we have to evaluate which result info has to be shown to the user.
-Add the detail result text in an extra element, only shown if the user is on the result page.
+Now we have to evaluate which result info has to be shown to the user.  
+Add the detailed result text in an extra element, only shown if the user is on the result's page.
 
 ```html
 <p v-if="this.stage === 'result'" v-html="this.result.text"/>
 ```
 
-Maybe you also don't want to keep the last quiz question image. If not, enhance the img computed property and check if the stage is result.
+Maybe you also don't want to keep the last quiz question image.  
+If not, enhance the img computed property and check if the stage is result.
 
 ```javascript
 // ...
@@ -160,11 +161,11 @@ image() {
 // ...
 ```
 
-
-That's it! You've completed your very first Harry Potter movie quiz app with Vue.js!
+That's it!  
+You've completed your very first Harry Potter movie quiz app with Vue.js!
 Well done :)
 
-PS: Please let us know if you have any feedback on this tutorial, we would really appreciate it.
+**PS:** Please let us know if you have any feedback on this tutorial, we would really appreciate it.
 
 ---
 [Prev: Step #7 - Introducing usage of store and saving data in local storage](step7.md)
