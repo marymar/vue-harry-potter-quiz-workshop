@@ -1,7 +1,7 @@
 # Workshop: Harry Potter Movie Quiz
 
 In this workshop, we are building a little Harry Potter Movie Quiz (https://55ygd.csb.app/).
-You will learn the basics about Vue components, how data binding is done in Vue, and how to perform simple REST API calls using Axios.
+You will learn the basics about Vue components, how data binding is done in Vue, and how to perform simple REST API calls.
 
 The workshop idea is inspired by [Dmytro Barylo](https://www.linkedin.com/in/dmytrobarylo/) from Ukraine who made the [Harry Potter Movie Quiz](https://madewithvuejs.com/harry-potter-movies-quiz). We would like to take this opportunity to thank Dmytro Barylo for the great idea on which basis we actually developed this workshop.
 
