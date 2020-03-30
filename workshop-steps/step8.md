@@ -46,11 +46,11 @@ data() {
 };
 ```
 
-From the `quiz stage` we have to switch to the `result stage`. To do this, we'll define a method for it.  
+From the `quiz stage` we have to switch to the `result stage`. To do this, we'll define a method for it.
 
 We have to consider when a refresh by the user is done and the application needs to initialize again when the component is mounted.
 
-You can read more about Vue Mounted here:  
+You can read more about Vue Mounted here:
 - https://vuejs.org/v2/api/#mounted
 
 ```javascript
@@ -138,7 +138,7 @@ correctAnswers() {
 },
 ```
 
-Now we have to evaluate which result info has to be shown to the user.  
+Now we have to evaluate which result info has to be shown to the user.
 Add the detailed result text in an extra element and a button to restart the quiz, only shown if the user is on the result's page.
 
 ```html
@@ -146,7 +146,7 @@ Add the detailed result text in an extra element and a button to restart the qui
 <button class="wellcome-button" v-if="stage === 'result'" @click="initWelcomeStage">Start again</button>
 ```
 
-Maybe you also don't want to keep the last quiz question's image.  
+Maybe you also don't want to keep the last quiz question's image.
 If not, enhance the `image()` computed property and check if the stage is result.
 
 ```javascript
@@ -164,9 +164,18 @@ image() {
 // ...
 ```
 
-That's it!  
+---
+
+## Achievement
+
+That's it!
+
 You've completed your very first Harry Potter movie quiz app with Vue.js!
-Well done :)
+
+**Well done :)**
+
+![Score](img/step8-result.png)
+
 
 **PS:** Please let us know if you have any feedback on this tutorial, we would really appreciate it.
 
