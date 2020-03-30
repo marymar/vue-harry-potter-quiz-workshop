@@ -9,7 +9,7 @@ Define two more methods to evaluate the choice and handle the answer.
 <button
   @click="handleAnswer(answerNumber)"
   class="quiz-button"
-  :class="{ 
+  :class="{
     'correct': isCorrectAnswer(answerNumber) && currentUserAnswer === answerNumber,
     'wrong': !isCorrectAnswer(answerNumber) && currentUserAnswer === answerNumber
   }">
@@ -50,6 +50,20 @@ Don't forget to enhance the button style for the incorrect and correct answer. O
   background-color: green;
 }
 ```
+
+---
+
+## Achievement
+
+At the end of step 5, you can click on the button. It when turns its background colour into green or red whether your answer was correct or not.
+
+**Correct answer:**
+
+![Correct answer](img/step5-correct-result.png)
+
+**Wrong answer:**
+
+![Wrong answer](img/step5-wrong-result.png)
 
 ---
 
