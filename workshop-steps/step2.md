@@ -315,6 +315,15 @@ We can again use the `stage` property for it.
 <button class="quiz-button" v-if="stage==='welcome'" @click="initQuizStage">Start Quiz</button>
 ```
 
+
+---
+
+## Achievement
+
+At the end of step 2, your application should look like that:
+
+![Create new Sandbox](img/step2-welcome-result.png)
+
 ---
 [Prev: Step #1 - Setting up the Vue App with CodeSandbox](step1.md)
 
