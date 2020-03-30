@@ -1,10 +1,10 @@
 # Step 3: Using the Quiz data
 
-Besides the movie data, we also need the quiz data with the movie clip and the choices of which movie it is.  
-We'll get this data from a JSON (Javascript Object Notation) file.  
+Besides the movie data, we also need the quiz data with the movie clip and the choices of which movie it is.
+We'll get this data from a JSON (Javascript Object Notation) file.
 JSON is the description of an object in a more human readable way. It is mainly used to transfer information between systems.
 
-You can read more about JSON here:  
+You can read more about JSON here:
 - https://en.wikipedia.org/wiki/JSON
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON
 
@@ -32,10 +32,10 @@ The JSON contains a list (an array) of questions. Each question contains 4 diffe
 To learn more about data primitives, like string, numbers and arrays, which are useful to understand the JSON structure better, we warmly recommend Lydia Hallie. She has written a very good explanation about it:
 - https://www.theavocoder.com/complete-javascript/2018/12/18/primitive-data-types
 
-To load the questions we're going to provide the Quiz component with the `questions-url` props from where the questions can be loaded. We'll use this to fetch the data from there.  
+To load the questions we're going to provide the Quiz component with the `questions-url` props from where the questions can be loaded. We'll use this to fetch the data from there.
 The fetching magic will happen with the `mounted()` method of our Quiz component. The `mounted()` method is a lifecycle hook, which is called after the instance has been mounted.
 
-You can read more about Vue Mounted here:  
+You can read more about Vue Mounted here:
 - https://vuejs.org/v2/api/#mounted
 
 ```html
@@ -70,18 +70,18 @@ async mounted() {
 },
 ```
 
-You can read more about Vue Async Components here:  
+You can read more about Vue Async Components here:
 - https://vuejs.org/v2/guide/components-dynamic-async.html#Async-Components
 
 Now we're able to use these loaded questions to enhance the `initQuizStage` and use this data to provide the first question to the user.
 
-We'll start replacing the image we used so far in the Quiz component to be changed dynamically in terms of the question we're showing. To do so some steps are needed.  
+We'll start replacing the image we used so far in the Quiz component to be changed dynamically in terms of the question we're showing. To do so some steps are needed.
 
 First, we need to know which question is in which order. We'll store the information within the `currentQuestionNumber` instance property. Then, we have to provide the according image, which we can do by using a computed property.
 
 A computed property in Vue is an instance property as well, but the main advantage it's that it can be built by different properties together. Vue will watch for changes inside dependent properties, and if they change, the computed property will be evaluated again. On the other hand, it'll be kept cached and only the cached value is provided.
 
-You can read more about Vue Computed Caching here:  
+You can read more about Vue Computed Caching here:
 - https://vuejs.org/v2/guide/computed.html#Computed-Caching-vs-Methods
 
 ```html
@@ -120,12 +120,12 @@ computed: {
       /*
         FYI: We're using a ternary operator in JS.
         The above code is equal to this:
-        if (this.currentQuestionNumber) { 
+        if (this.currentQuestionNumber) {
           "Which movie is this?"
         } else {
           "How Well Do You Know the Harry Potter Movies?"
         }
-        
+
         Learn about ternary operators here:
         - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
       */
@@ -141,6 +141,20 @@ You can read more about Vue Text Interpolation here:
 ```html
   <h1 class="quiz-heading">{{ title }}</h1>
 ```
+
+---
+
+## Achievement
+
+At the end of step 3, your application should look like that:
+
+**Welcome Screen:**
+
+![Welcome Screen](img/step3-welcome-result.png)
+
+**After clicking on the start button:**
+
+![After clicking on start button](img/step3-started-result.png)
 
 ---
 
