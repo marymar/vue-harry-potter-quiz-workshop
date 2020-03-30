@@ -235,6 +235,14 @@ In CodeSandbox we're running into a problem when using `localStorage`. This is b
 
 ---
 
+## Achievement
+
+At the end of step 7, a user can refresh the page and the question, that was asked last time and has not yet been answered by the user will be loaded.
+
+![Save progress and answers](img/step7-result.gif)
+
+---
+
 [Prev: Step #6 - Proceed with next question](step6.md)
 
 [Next: Step #8 - Create the score view](step8.md)
