@@ -4,7 +4,7 @@ After evaluating the answer we'll show the result to the user for a short time a
 
 To wait for a second after the evaluation, we'll need to create a `setTimeout` function indicating the amount of waiting in milliseconds. E.g. 1 second = 1000 milliseconds.
 
-And to display the next question we'll need to increase the `currentQuestionNumber` by one.  
+And to display the next question we'll need to increase the `currentQuestionNumber` by one.
 
 Because Vue recognizes changes in the component's data, these additions will update all dependencies, and the values in the component will be updated by showing the next question to the user.
 
@@ -29,7 +29,7 @@ handleAnswer(answerNumber) {
         this.nextQuestion();
     }, 1000);
 
-    /* 
+    /*
       Learn about setTimeout functions here:
       - https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout
     */
@@ -43,7 +43,7 @@ nextQuestion() {
     ++this.currentQuestionNumber;
 
     The above line of code is equal to this:
-    
+
     this.currentQuestionNumber = this.currentQuestionNumber + 1;
 
     or
@@ -55,6 +55,14 @@ nextQuestion() {
     */
 }
 ```
+
+---
+
+## Achievement
+
+At the end of step 6, a user can answer all questions. Every time she makes a choice, the application forwards to the next question after a short time.
+
+![Stepping threw questions](img/step6-result.gif)
 
 ---
 
