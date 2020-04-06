@@ -5,6 +5,10 @@ You will learn the basics about Vue components, how data binding is done in Vue,
 
 The workshop idea is inspired by [Dmytro Barylo](https://www.linkedin.com/in/dmytrobarylo/) from Ukraine who made the [Harry Potter Movie Quiz](https://madewithvuejs.com/harry-potter-movies-quiz). We would like to take this opportunity to thank Dmytro Barylo for the great idea on which basis we actually developed this workshop.
 
+_Made by Mary Vokicic ([@burgmary](https://twitter.com/burgmary)),
+with help from Ilithya ([@ilithya_net](https://twitter.com/ilithya_net))
+and Steffi ([@Qbrid_](https://twitter.com/Qbrid_))._
+
 
 ## Code Sandbox
 
